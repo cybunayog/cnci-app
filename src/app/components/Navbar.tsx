@@ -1,40 +1,81 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { AiOutlineMenu, AiOutlineClose, AiFillFacebook } from 'react-icons/ai';
 
 import { Logo } from './Logo';
 
 export const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNav = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <nav className="bg-gray-200">
+    <nav className="fixed w-full bg-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-200 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
-            <li>
-              <Link
-                href="/about"
-                className="block py-2 pl-3 pr-4 text-2xl text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
-              >
-                Our Mission
-              </Link>
+        <div className="hidden sm:flex">
+          <ul className="hidden sm:flex">
+            <li className="ml-10 uppercase hover:border-b text-xl">
+              <Link href="/about">Our Mission</Link>
             </li>
-            <li>
-              <Link
-                href="/locations"
-                className="block py-2 pl-3 pr-4 text-2xl text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
-              >
-                Locations
-              </Link>
+            <li className="ml-10 uppercase hover:border-b text-xl">
+              <Link href="/locations">Locations</Link>
             </li>
-            <li>
-              <Link
-                href="/contact"
-                className="block py-2 pl-3 pr-4 text-2xl text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
-              >
-                Contact
-              </Link>
+            <li className="ml-10 uppercase hover:border-b text-xl">
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
+        </div>
+        <div onClick={handleNav} className="sm:hidden cursor-pointer pl-24">
+          <AiOutlineMenu size={25} />
+        </div>
+        <div
+          className={
+            menuOpen
+              ? 'fixed left-0 top-0 w-[65%] sm:hidden h-screen bg-gray-200 p-10 ease-in duration-500'
+              : 'fixed left-[-100%] top-0 p-10 ease-in duration-500'
+          }
+        >
+          <div className="flex w-full items-center justify-end">
+            <div onClick={handleNav} className="cursor-pointer">
+              <AiOutlineClose size={25} />
+            </div>
+          </div>
+          <div className="flex-col py-4">
+            <ul>
+              <li
+                onClick={() => setMenuOpen(false)}
+                className="py-4 cursor-pointer text-xl"
+              >
+                <Link href="/">Home</Link>
+              </li>
+              <li
+                onClick={() => setMenuOpen(false)}
+                className="py-4 cursor-pointer text-xl"
+              >
+                <Link href="/about">Our Mission</Link>
+              </li>
+              <li
+                onClick={() => setMenuOpen(false)}
+                className="py-4 cursor-pointer text-xl"
+              >
+                <Link href="/locations">Locations</Link>
+              </li>
+              <li
+                onClick={() => setMenuOpen(false)}
+                className="py-4 cursor-pointer text-xl"
+              >
+                <Link href="/contact">Contact</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-row justify-around pt-10 items-center">
+            <a href="https://www.facebook.com/cnci.la">
+              <AiFillFacebook className="cursor-pointer" size={30} />
+            </a>
+          </div>
         </div>
       </div>
     </nav>
