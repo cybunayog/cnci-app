@@ -1,6 +1,6 @@
 import './globals.css';
 
-import { Navbar } from './components';
+import { Navbar, Footer } from './components';
 
 export const metadata = {
   title: `CNCI Church | United States`,
@@ -18,6 +18,7 @@ export default function RootLayout({
           <Navbar />
         </header>
         <div>{children}</div>
+        <Footer />
       </body>
     </html>
   );

@@ -16,6 +16,7 @@ export const Navbar = () => {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
         <div className="hidden sm:flex">
+          {/* Web View */}
           <ul className="hidden sm:flex">
             <li className="ml-10 uppercase hover:border-b text-xl">
               <Link href="/about">Our Mission</Link>
@@ -44,6 +45,7 @@ export const Navbar = () => {
             </div>
           </div>
           <div className="flex-col py-4">
+            {/* Mobile View */}
             <ul>
               <li
                 onClick={() => setMenuOpen(false)}
@@ -72,6 +74,7 @@ export const Navbar = () => {
             </ul>
           </div>
           <div className="flex flex-row justify-around pt-10 items-center">
+            {/* Social Media Icons */}
             <a href="https://www.facebook.com/cnci.la">
               <AiFillFacebook className="cursor-pointer" size={30} />
             </a>
