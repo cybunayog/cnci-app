@@ -17,7 +17,7 @@ export default function RootLayout({
         <header className="sticky top-0">
           <Navbar />
         </header>
-        <div>{children}</div>
+        <div className="bg-[#eceadc]">{children}</div>
         <Footer />
       </body>
     </html>

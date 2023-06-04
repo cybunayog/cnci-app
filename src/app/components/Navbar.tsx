@@ -12,19 +12,19 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full bg-gray-200">
+    <nav className="fixed w-full bg-[#1b3375]">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
         <div className="hidden sm:flex">
           {/* Web View */}
           <ul className="hidden sm:flex">
-            <li className="ml-10 uppercase hover:border-b text-xl">
+            <li className="ml-10 uppercase hover:border-b text-xl text-[#f3f3f2]">
               <Link href="/about">Our Mission</Link>
             </li>
-            <li className="ml-10 uppercase hover:border-b text-xl">
+            <li className="ml-10 uppercase hover:border-b text-xl text-[#f3f3f2]">
               <Link href="/locations">Locations</Link>
             </li>
-            <li className="ml-10 uppercase hover:border-b text-xl">
+            <li className="ml-10 uppercase hover:border-b text-xl text-[#f3f3f2]">
               <Link href="/contact">Contact</Link>
             </li>
           </ul>

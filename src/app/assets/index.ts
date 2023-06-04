@@ -1,13 +1,13 @@
 /* Photos */
-export {default as contact} from './contact.jpg';
-export {default as gallery} from './gallery_1.jpg';
-export {default as gallery2} from './gallery_2.jpg';
-export {default as gallery3} from './gallery_3.jpg';
-export {default as gallery4} from './gallery_4.jpg';
-export {default as gallery5} from './gallery_5.jpg';
-export {default as testImage} from './test.jpg';
-export {default as testImage2} from './test2.jpg';
-export {default as testImage3} from './test3.jpg';
+export {default as anointing} from './anointing.jpg';
+export {default as churchChristmas} from './church_christmas.jpg';
+export {default as group} from './group.jpg';
+export {default as congregation} from './congregation.jpg';
+export {default as congregation2} from './congregation_2.jpg';
+export {default as preach} from './preach.jpg';
+export {default as stage} from './stage.jpg';
+export {default as worship} from './worship.jpg';
+export {default as worship2} from './worship_2.jpg';
 
 /* Icons */
 export {default as laIcon} from './la-icon.png';
