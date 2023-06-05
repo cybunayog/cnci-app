@@ -14,11 +14,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="sticky top-0">
+        <div className="main-container">
           <Navbar />
-        </header>
-        <div className="bg-[#eceadc]">{children}</div>
-        <Footer />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

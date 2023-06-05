@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const Footer = () => {
   return (
-    <footer className="absolute bottom-0 w-full bg-black text-center text-white">
+    <footer className="relative bottom-0 w-full bg-black text-center text-white">
       <div className="mx-auto px-6 pt-10 pb-10">
         <ul className="flex flex-row justify-center ">
           <li className="px-2 text-sm">
@@ -21,7 +21,7 @@ export const Footer = () => {
         </ul>
       </div>
       <div className=" mx-auto px-6 pt-5 pb-6 text-[#ffffff80]">
-        © CNCI USA - All Rights Reserved || Designed by{' '}
+        © CNCI USA - All Rights Reserved || Designed & by{' '}
         <a href="https://github.com/cybunayog">Cy</a>
       </div>
     </footer>
