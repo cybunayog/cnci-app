@@ -13,7 +13,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-10 bg-[#183d6b]">
+    <nav className="fixed top-0 w-full z-10 bg-[#183d6bCC]">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
         <div className="hidden sm:flex">

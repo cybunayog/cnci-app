@@ -9,11 +9,14 @@
 }
 
 .home-background-image-container {
+  display: flex;
   width: 100%;
   height: 75vh;
   position: relative;
   @media screen and (max-width: 640px) {
+    display: flex;
     height: auto;
+    top: 92px;
   }
 }
 
@@ -25,10 +28,4 @@
     position: relative !important;
     height: unset !important;
   }  
-}
-
-.header-text {
-  font-size: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
 }
