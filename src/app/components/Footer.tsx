@@ -6,7 +6,7 @@ import { StyledIcon } from './StyledIcon';
 
 export const Footer = () => {
   return (
-    <footer className="relative bottom-0 w-full bg-black text-center text-white">
+    <footer className="relative bottom-0 left-0 w-full bg-black text-center text-white">
       <div className="mx-auto pt-10 pb-5">
         <ul className="flex flex-row justify-center">
           <li className="px-2 text-sm">
