@@ -1,27 +1,42 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { Header as RNEHeader } from '@rneui/base';
+import { View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { Header as RNEHeader } from '@rneui/themed';
 
-const styles = StyleSheet.create({});
+import { platform, colors } from '../constants/constants';
+import { Logo } from '../../assets/images';
+const styles = StyleSheet.create({
+  headerContainer: {
+    width: '100%',
+    height: 80,
+    backgroundColor: colors.cnciBlue,
+  },
+  sideContainer: {
+    margin: 5,
+  },
+  logo: {
+    width: 50,
+    height: 50,
+  },
+});
 
 const HeaderLeftComponent = () => (
-  <View>
-    <Text>Here</Text>
-  </View>
+  <TouchableOpacity style={styles.sideContainer}>
+    <Image style={styles.logo} source={Logo} />
+  </TouchableOpacity>
 );
 
-const HeaderRightComponent = () => (
-  <View>
-    <Text>Right</Text>
-  </View>
-);
+const WebMiddleComponent = () => ({
+  // TODO: Display About, Locations, Contact for web. Hide for mobile
+});
 
-export const Header = () => {
-  return (
-    <RNEHeader
-      leftComponent={<HeaderLeftComponent />}
-      rightComponent={<HeaderRightComponent />}
-      containerStyle={{ width: 'auto', height: 100 }}
-    />
-  );
-};
+export const Header = () => (
+  <RNEHeader
+    leftComponent={<HeaderLeftComponent />}
+    rightComponent={
+      <Ionicons name="menu-outline" color={colors.white} size={40} />
+    }
+    rightContainerStyle={styles.sideContainer}
+    containerStyle={styles.headerContainer}
+  />
+);

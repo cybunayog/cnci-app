@@ -10,12 +10,8 @@ const HomeDrawer = () => {
   const { Navigator, Screen } = HomeDrawerStack;
 
   return (
-    <Navigator>
-      <Screen
-        name="HomeDrawer"
-        component={Home}
-        options={{ headerShown: false }}
-      />
+    <Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+      <Screen name="Home" component={Home} />
     </Navigator>
   );
 };
@@ -25,12 +21,11 @@ export const Navigator = () => {
 
   return (
     <NavigationContainer>
-      <RootNavigator initialRouteName="Home">
-        <Screen
-          name="Home"
-          component={HomeDrawer}
-          options={{ headerShown: false }}
-        />
+      <RootNavigator
+        initialRouteName="HomeDrawer"
+        screenOptions={{ headerShown: false }}
+      >
+        <Screen name="HomeDrawer" component={HomeDrawer} />
       </RootNavigator>
     </NavigationContainer>
   );
