@@ -9,16 +9,15 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.lightGray,
     flex: 1,
-    alignContent: 'center',
   },
 });
 
-export const Home = () => {
+export const ContactScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
       <View>
-        <Text>Home Page</Text>
+        <Text>Contact Page</Text>
       </View>
     </SafeAreaView>
   );

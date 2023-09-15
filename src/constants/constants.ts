@@ -1,8 +1,11 @@
-import { Platform } from 'react-native'
+import { Platform, Dimensions } from 'react-native'
+
+const {width: screenWidth} = Dimensions.get('screen');
 
 const platform = {
-    IS_WEB: Platform.OS === 'web',
-    IS_MOBILE: Platform.OS === 'android' || Platform.OS === 'ios',
+    isWeb: Platform.OS === 'web',
+    isMobile: Platform.OS === 'android' || Platform.OS === 'ios',
+    isMobileHeight: screenWidth < 768
 };
 
 const colors = {
@@ -11,8 +14,23 @@ const colors = {
     white: '#fff',
     black: '#000',
 };
+
+const strings = {
+    about: 'About',
+    locations: 'Locations',
+    contact: 'Contact',
+}
+
+const screens = {
+    HomeScreen: 'HomeScreen',
+    ContactScreen: 'ContactScreen',
+    AboutScreen: 'AboutScreen',
+    LocationScreen: 'LocationScreen',
+}
  
 export {
     platform,
-    colors
+    colors,
+    strings,
+    screens,
 };
