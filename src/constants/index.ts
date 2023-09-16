@@ -21,25 +21,32 @@ const colors = {
 };
 
 const strings = {
+    cardHomeLocationTitle: 'Join us this Sunday',
+    cardHomeLocationSubText: 'The doors are always open every week.',
+    cardHomeLocationButtonText: 'Times & Locations',
+    cardHomeAboutTitle: 'Our Purpose',
+    cardHomeAboutSubText: 'To proclaim Salvation, Healing, Deliverance, & the Second Coming of our Lord Jesus Christ',
+    learnMore: 'Learn More',
+};
+
+const constants = {
     about: 'About',
     locations: 'Locations',
     contact: 'Contact',
     home: 'Home',
-    cardHomeLocationTitle: 'Join us this Sunday',
-    cardHomeLocationSubText: 'The doors are always open every week.',
-    cardHomeLocationButtonText: 'Times & Locations'
-}
+};
 
 const screens = {
     HomeScreen: 'HomeScreen',
     ContactScreen: 'ContactScreen',
     AboutScreen: 'AboutScreen',
     LocationScreen: 'LocationScreen',
-}
+};
  
 export {
     platform,
     colors,
     strings,
     screens,
+    constants,
 };

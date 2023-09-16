@@ -4,18 +4,20 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Card, Image, Text, Button } from '@rneui/themed';
 
 import { Header } from '../components';
-import { colors, platform, strings } from '../constants';
+import { colors, platform, strings, constants } from '../constants';
 import { cover, homeGalleryOne, homeGalleryTwo } from '../../assets/images';
 
-export const HomeScreen = ({ navigation }) => {
-  const {
-    locations,
-    about,
-    cardHomeLocationButtonText,
-    cardHomeLocationSubText,
-    cardHomeLocationTitle,
-  } = strings;
+const { locations, about } = constants;
+const {
+  cardHomeLocationButtonText,
+  cardHomeLocationSubText,
+  cardHomeLocationTitle,
+  cardHomeAboutTitle,
+  cardHomeAboutSubText,
+  learnMore,
+} = strings;
 
+export const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <Header />
@@ -44,19 +46,16 @@ export const HomeScreen = ({ navigation }) => {
           <Card containerStyle={styles.cardContainer}>
             <Card.Image style={styles.cardImage} source={homeGalleryTwo}>
               <View style={styles.cardInnerContainer}>
-                <Text style={styles.cardTitle}>Our Purpose</Text>
-                <Text style={styles.cardSubText}>
-                  To proclaim Salvation, Healing, Deliverance, & the Second
-                  Coming of our Lord Jesus Christ
-                </Text>
+                <Text style={styles.cardTitle}>{cardHomeAboutTitle}</Text>
+                <Text style={styles.cardSubText}>{cardHomeAboutSubText}</Text>
                 <Button
-                  onPress={() => navigation.navigate(locations)}
+                  onPress={() => navigation.navigate(about)}
                   color={colors.cnciBlue}
                   style={styles.cardButtonContainer}
                   buttonStyle={styles.cardButton}
                   titleStyle={styles.cardButtonText}
                 >
-                  Learn More
+                  {learnMore}
                 </Button>
               </View>
             </Card.Image>

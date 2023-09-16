@@ -4,12 +4,12 @@ import { useNavigation, DrawerActions } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { Header as RNEHeader } from '@rneui/themed';
 
-import { colors, platform, strings, screens } from '../constants';
+import { colors, platform, constants } from '../constants';
 import { logo } from '../../assets/images';
 
 const { cnciBlue, white } = colors;
 const { isMobile, isMobileWidth } = platform;
-const { about, locations, contact, home } = strings;
+const { about, locations, contact, home } = constants;
 
 const navHeaders = [about, locations, contact];
 

@@ -6,7 +6,9 @@ import {
   AboutScreen,
   LocationScreen,
 } from '../screens';
-import { colors, strings } from '../constants';
+import { colors, constants } from '../constants';
+
+const { home, about, contact, locations } = constants;
 
 const HomeDrawer = createDrawerNavigator();
 
@@ -28,10 +30,10 @@ export const Drawer = () => {
         },
       }}
     >
-      <Screen name={strings.home} component={HomeScreen} />
-      <Screen name={strings.about} component={AboutScreen} />
-      <Screen name={strings.contact} component={ContactScreen} />
-      <Screen name={strings.locations} component={LocationScreen} />
+      <Screen name={home} component={HomeScreen} />
+      <Screen name={about} component={AboutScreen} />
+      <Screen name={contact} component={ContactScreen} />
+      <Screen name={locations} component={LocationScreen} />
     </Navigator>
   );
 };
