@@ -4,46 +4,14 @@ import { useNavigation, DrawerActions } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { Header as RNEHeader } from '@rneui/themed';
 
-import { Constants } from '../constants';
-import { Logo } from '../../assets/images';
+import { colors, platform, constants } from '../constants';
+import { logo } from '../../assets/images';
 
-const {
-  colors: { cnciBlue, white },
-  platform: { isMobile, isMobileHeight },
-  strings: { about, locations, contact },
-  screens: { HomeScreen, LocationScreen },
-} = Constants;
+const { cnciBlue, white } = colors;
+const { isMobile, isMobileWidth } = platform;
+const { about, locations, contact, home } = constants;
 
 const navHeaders = [about, locations, contact];
-
-const styles = StyleSheet.create({
-  headerContainer: {
-    width: '100%',
-    height: 80,
-    backgroundColor: cnciBlue,
-  },
-  sideContainer: {
-    margin: 5,
-  },
-  middleContainer: {
-    display: 'flex',
-    flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    textAlign: 'center',
-    flexDirection: 'row',
-    gap: 100,
-  },
-  middleContainerText: {
-    flex: 1,
-    color: white,
-    fontSize: 20,
-  },
-  logo: {
-    width: 50,
-    height: 50,
-  },
-});
 
 export const Header = () => {
   const { navigate, dispatch } = useNavigation();
@@ -52,24 +20,20 @@ export const Header = () => {
     <TouchableOpacity
       style={styles.sideContainer}
       onPress={() => {
-        navigate(HomeScreen);
+        navigate(home);
       }}
     >
-      <Image style={styles.logo} source={Logo} />
+      <Image style={styles.logo} source={logo} />
     </TouchableOpacity>
   );
 
   const WebCenterComponent = () =>
     !isMobile &&
-    !isMobileHeight && (
+    !isMobileWidth && (
       <View style={styles.middleContainer}>
         {navHeaders.map((item: string, index: number) => (
           <TouchableOpacity
             onPress={() => {
-              console.log('item:', item);
-              if (item === locations) {
-                navigate(LocationScreen);
-              }
               navigate(item);
             }}
           >
@@ -99,3 +63,32 @@ export const Header = () => {
     />
   );
 };
+
+const styles = StyleSheet.create({
+  headerContainer: {
+    width: '100%',
+    height: 85,
+    backgroundColor: cnciBlue,
+  },
+  sideContainer: {
+    margin: 5,
+  },
+  middleContainer: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    textAlign: 'center',
+    flexDirection: 'row',
+    gap: 100,
+  },
+  middleContainerText: {
+    flex: 1,
+    color: white,
+    fontSize: 20,
+  },
+  logo: {
+    width: 50,
+    height: 50,
+  },
+});

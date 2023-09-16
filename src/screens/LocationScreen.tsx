@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Header } from '../components';
-import { colors } from '../constants/constants';
+import { colors } from '../constants';
 
 export const LocationScreen = () => {
   return (
