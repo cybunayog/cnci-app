@@ -5,11 +5,12 @@ import { Card, Image, Text, Button } from '@rneui/themed';
 
 import { Header } from '../components';
 import { colors, platform, strings } from '../constants';
-import { cover, homeGalleryOne } from '../../assets/images';
+import { cover, homeGalleryOne, homeGalleryTwo } from '../../assets/images';
 
 export const HomeScreen = ({ navigation }) => {
   const {
     locations,
+    about,
     cardHomeLocationButtonText,
     cardHomeLocationSubText,
     cardHomeLocationTitle,
@@ -22,22 +23,8 @@ export const HomeScreen = ({ navigation }) => {
         <View style={styles.container}>
           <Image style={styles.coverImage} source={cover} />
           <Card containerStyle={styles.cardContainer}>
-            <Card.Image
-              style={{
-                height: platform.isMobileWidth
-                  ? platform.windowWidth
-                  : platform.windowWidth / 2,
-                padding: 0,
-                borderRadius: 10,
-              }}
-              source={homeGalleryOne}
-            >
-              <View
-                style={{
-                  justifyContent: 'center',
-                  marginTop: platform.isMobileWidth ? 10 : 30,
-                }}
-              >
+            <Card.Image style={styles.cardImage} source={homeGalleryOne}>
+              <View style={styles.cardInnerContainer}>
                 <Text style={styles.cardTitle}>{cardHomeLocationTitle}</Text>
                 <Text style={styles.cardSubText}>
                   {cardHomeLocationSubText}
@@ -50,6 +37,26 @@ export const HomeScreen = ({ navigation }) => {
                   titleStyle={styles.cardButtonText}
                 >
                   {cardHomeLocationButtonText}
+                </Button>
+              </View>
+            </Card.Image>
+          </Card>
+          <Card containerStyle={styles.cardContainer}>
+            <Card.Image style={styles.cardImage} source={homeGalleryTwo}>
+              <View style={styles.cardInnerContainer}>
+                <Text style={styles.cardTitle}>Our Purpose</Text>
+                <Text style={styles.cardSubText}>
+                  To proclaim Salvation, Healing, Deliverance, & the Second
+                  Coming of our Lord Jesus Christ
+                </Text>
+                <Button
+                  onPress={() => navigation.navigate(locations)}
+                  color={colors.cnciBlue}
+                  style={styles.cardButtonContainer}
+                  buttonStyle={styles.cardButton}
+                  titleStyle={styles.cardButtonText}
+                >
+                  Learn More
                 </Button>
               </View>
             </Card.Image>
@@ -91,6 +98,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 4,
     fontSize: platform.isMobileWidth ? 20 : 40,
+  },
+  cardImage: {
+    height: platform.isMobileWidth
+      ? platform.windowWidth
+      : platform.windowWidth / 2,
+    padding: 0,
+    borderRadius: 10,
+  },
+  cardInnerContainer: {
+    justifyContent: 'center',
+    marginTop: platform.isMobileWidth ? 10 : 30,
+    paddingHorizontal: 5,
   },
   cardSubText: {
     color: colors.white,
