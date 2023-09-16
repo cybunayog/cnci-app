@@ -1,11 +1,11 @@
-import React from 'react';
-import { View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
-import { Header as RNEHeader } from '@rneui/themed';
+import React from "react";
+import { View, TouchableOpacity, Image, Text, StyleSheet } from "react-native";
+import { useNavigation, DrawerActions } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
+import { Header as RNEHeader } from "@rneui/themed";
 
-import { Constants } from '../constants';
-import { Logo } from '../../assets/images';
+import { Constants } from "../constants";
+import { Logo } from "../../assets/images";
 
 const {
   colors: { cnciBlue, white },
@@ -18,7 +18,7 @@ const navHeaders = [about, locations, contact];
 
 const styles = StyleSheet.create({
   headerContainer: {
-    width: '100%',
+    width: "100%",
     height: 80,
     backgroundColor: cnciBlue,
   },
@@ -26,12 +26,12 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   middleContainer: {
-    display: 'flex',
+    display: "flex",
     flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    textAlign: 'center',
-    flexDirection: 'row',
+    justifyContent: "space-between",
+    alignItems: "center",
+    textAlign: "center",
+    flexDirection: "row",
     gap: 100,
   },
   middleContainerText: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 });
 
 export const Header = () => {
-  const { navigate } = useNavigation();
+  const { navigate, dispatch } = useNavigation();
 
   const HeaderLeftComponent = () => (
     <TouchableOpacity
@@ -87,7 +87,8 @@ export const Header = () => {
         <TouchableOpacity
           onPress={() => {
             // TODO: Open drawer
-            console.log('open!');
+            console.log("open!");
+            dispatch(DrawerActions.toggleDrawer());
           }}
         >
           <Ionicons name="menu-outline" color={white} size={40} />

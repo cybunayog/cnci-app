@@ -1,19 +1,20 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+import { Drawer } from "./Drawer";
 import {
   HomeScreen,
   AboutScreen,
   ContactScreen,
   LocationScreen,
-} from '../screens';
-import { screens } from '../constants/constants';
+} from "../screens";
+import { screens } from "../constants/constants";
 
 const RootStack = createNativeStackNavigator();
-const HomeDrawerStack = createNativeStackNavigator();
+const MainStack = createNativeStackNavigator();
 
-const HomeDrawer = () => {
-  const { Navigator, Screen } = HomeDrawerStack;
+const HomeStack = () => {
+  const { Navigator, Screen } = MainStack;
 
   return (
     <Navigator
@@ -37,7 +38,8 @@ export const Navigator = () => {
         initialRouteName="HomeDrawer"
         screenOptions={{ headerShown: false }}
       >
-        <Screen name="HomeDrawer" component={HomeDrawer} />
+        <Screen name="HomeDrawer" component={Drawer} />
+        <Screen name="HomeStack" component={HomeStack} />
       </RootNavigator>
     </NavigationContainer>
   );
