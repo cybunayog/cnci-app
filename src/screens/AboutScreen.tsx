@@ -1,17 +1,22 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Image as CoverImage } from '@rneui/themed';
 
-import { Header } from '../components';
-import { colors } from '../constants';
+import { Header, Footer } from '../components';
+import { constants, platform, strings, colors } from '../constants';
+import { homeGalleryOne } from '../../assets/images';
 
 export const AboutScreen = () => {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <Header />
-      <View>
-        <Text>About Page</Text>
-      </View>
+      <ScrollView style={{ marginTop: -1 }}>
+        <View>
+          <CoverImage style={styles.coverImage} source={homeGalleryOne} />
+        </View>
+        <Footer />
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -20,5 +25,15 @@ const styles = StyleSheet.create({
   safeAreaContainer: {
     backgroundColor: colors.lightGray,
     flex: 1,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    height: '100%',
+    paddingBottom: 10,
+  },
+  coverImage: {
+    width: '100%',
+    height: platform.windowWidth / 2,
   },
 });

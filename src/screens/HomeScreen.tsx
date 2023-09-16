@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Card, Image, Text, Button } from '@rneui/themed';
+import { Image as CoverImage } from '@rneui/themed';
 
 import { Header, Footer, CardWithContent } from '../components';
 import { colors, platform, strings, constants } from '../constants';
@@ -31,7 +31,7 @@ export const HomeScreen = ({ navigation }) => {
       <Header />
       <ScrollView style={{ marginTop: -1 }}>
         <View style={styles.container}>
-          <Image style={styles.coverImage} source={cover} />
+          <CoverImage style={styles.coverImage} source={cover} />
           <CardWithContent
             onPress={() => navigation.navigate(locations)}
             image={homeGalleryFour}
