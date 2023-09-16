@@ -6,19 +6,19 @@ import { Header } from '../components';
 import { colors } from '../constants';
 
 export const ContactScreen = () => {
-  return (
-    <SafeAreaView style={styles.safeAreaContainer}>
-      <Header />
-      <View>
-        <Text>Contact Page</Text>
-      </View>
-    </SafeAreaView>
-  );
+	return (
+		<SafeAreaView style={styles.safeAreaContainer}>
+			<Header />
+			<View>
+				<Text>Contact Page</Text>
+			</View>
+		</SafeAreaView>
+	);
 };
 
 const styles = StyleSheet.create({
-  safeAreaContainer: {
-    backgroundColor: colors.lightGray,
-    flex: 1,
-  },
+	safeAreaContainer: {
+		backgroundColor: colors.lightGray,
+		flex: 1,
+	},
 });
