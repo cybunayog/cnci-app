@@ -5,16 +5,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Header } from '../components';
 import { colors } from '../constants/constants';
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.lightGray,
-    flex: 1,
-  },
-});
-
 export const HomeScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.safeAreaContainer}>
       <Header />
       <View>
         <Text>Home Page</Text>
@@ -22,3 +15,10 @@ export const HomeScreen = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  safeAreaContainer: {
+    backgroundColor: colors.lightGray,
+    flex: 1,
+  },
+});

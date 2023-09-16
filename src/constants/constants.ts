@@ -19,6 +19,7 @@ const strings = {
     about: 'About',
     locations: 'Locations',
     contact: 'Contact',
+    home: 'Home',
 }
 
 const screens = {
