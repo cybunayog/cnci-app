@@ -25,6 +25,9 @@ const strings = {
     locations: 'Locations',
     contact: 'Contact',
     home: 'Home',
+    cardHomeLocationTitle: 'Join us this Sunday',
+    cardHomeLocationSubText: 'The doors are always open every week.',
+    cardHomeLocationButtonText: 'Times & Locations'
 }
 
 const screens = {

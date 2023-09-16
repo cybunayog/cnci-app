@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ICarouselInstance } from 'react-native-reanimated-carousel';
 import { Card, Image, Text, Button } from '@rneui/themed';
 
 import { Header } from '../components';
@@ -9,7 +8,12 @@ import { colors, platform, strings } from '../constants';
 import { cover, homeGalleryOne } from '../../assets/images';
 
 export const HomeScreen = ({ navigation }) => {
-  const ref = React.useRef<ICarouselInstance>(null);
+  const {
+    locations,
+    cardHomeLocationButtonText,
+    cardHomeLocationSubText,
+    cardHomeLocationTitle,
+  } = strings;
 
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
@@ -34,18 +38,18 @@ export const HomeScreen = ({ navigation }) => {
                   marginTop: platform.isMobileWidth ? 10 : 30,
                 }}
               >
-                <Text style={styles.cardTitle}>Join us this Sunday</Text>
+                <Text style={styles.cardTitle}>{cardHomeLocationTitle}</Text>
                 <Text style={styles.cardSubText}>
-                  The doors are always open every week.
+                  {cardHomeLocationSubText}
                 </Text>
                 <Button
-                  onPress={() => navigation.navigate(strings.locations)}
+                  onPress={() => navigation.navigate(locations)}
                   color={colors.cnciBlue}
                   style={styles.cardButtonContainer}
                   buttonStyle={styles.cardButton}
                   titleStyle={styles.cardButtonText}
                 >
-                  Times & Locations
+                  {cardHomeLocationButtonText}
                 </Button>
               </View>
             </Card.Image>
@@ -86,7 +90,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     marginBottom: 4,
-    fontSize: 20,
+    fontSize: platform.isMobileWidth ? 20 : 40,
   },
   cardSubText: {
     color: colors.white,
