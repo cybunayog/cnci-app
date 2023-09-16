@@ -3,7 +3,7 @@ import { Platform, Dimensions } from 'react-native'
 const {width: screenWidth, height: screenHeight} = Dimensions.get('screen');
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 
-const platform: Record<string, any> = {
+export const platform: Record<string, any> = {
     isWeb: Platform.OS === 'web',
     isMobile: Platform.OS === 'android' || Platform.OS === 'ios',
     isMobileWidth: screenWidth <= 768,
@@ -13,14 +13,14 @@ const platform: Record<string, any> = {
     screenHeight,
 };
 
-const colors: Record<string, string> = {
+export const colors: Record<string, string> = {
     cnciBlue: '#1c4e7d',
     lightGray: '#dadada',
     white: '#fff',
     black: '#000',
 };
 
-const strings: Record<string, string> = {
+export const strings: Record<string, string> = {
     cardHomeLocationTitle: 'Join us this Sunday',
     cardHomeLocationSubText: 'The doors are always open every week.',
     cardHomeLocationButtonText: 'Times & Locations',
@@ -34,24 +34,17 @@ const strings: Record<string, string> = {
     cnciFBUrl: 'https://www.facebook.com/people/CNCI-Los-Angeles-California-USA/61551495982602/',
 };
 
-const constants: Record<string, string> = {
+export const constants: Record<string, string> = {
     about: 'About',
     locations: 'Locations',
     contact: 'Contact',
     home: 'Home',
 };
 
-const screens: Record<string, string> = {
+export const screens: Record<string, string> = {
     HomeScreen: 'HomeScreen',
     ContactScreen: 'ContactScreen',
     AboutScreen: 'AboutScreen',
     LocationScreen: 'LocationScreen',
 };
  
-export {
-    platform,
-    colors,
-    strings,
-    screens,
-    constants,
-};
