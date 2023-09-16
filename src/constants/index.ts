@@ -3,7 +3,7 @@ import { Platform, Dimensions } from 'react-native'
 const {width: screenWidth, height: screenHeight} = Dimensions.get('screen');
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 
-const platform = {
+const platform: Record<string, any> = {
     isWeb: Platform.OS === 'web',
     isMobile: Platform.OS === 'android' || Platform.OS === 'ios',
     isMobileWidth: screenWidth <= 768,
@@ -13,14 +13,14 @@ const platform = {
     screenHeight,
 };
 
-const colors = {
+const colors: Record<string, string> = {
     cnciBlue: '#1c4e7d',
     lightGray: '#dadada',
     white: '#fff',
     black: '#000',
 };
 
-const strings = {
+const strings: Record<string, string> = {
     cardHomeLocationTitle: 'Join us this Sunday',
     cardHomeLocationSubText: 'The doors are always open every week.',
     cardHomeLocationButtonText: 'Times & Locations',
@@ -30,16 +30,18 @@ const strings = {
     cardHomeContactSubText: 'Feel free to reach out! We would love to hear from you.',
     cardHomeContactButtonText: 'Get In Touch',
     learnMore: 'Learn More',
+    footerText: `© 2023 CNCI Los Angeles${'\t'}|${'\t'}401 E Colorado St, Glendale, CA 91205`,
+    cnciFBUrl: 'https://www.facebook.com/people/CNCI-Los-Angeles-California-USA/61551495982602/',
 };
 
-const constants = {
+const constants: Record<string, string> = {
     about: 'About',
     locations: 'Locations',
     contact: 'Contact',
     home: 'Home',
 };
 
-const screens = {
+const screens: Record<string, string> = {
     HomeScreen: 'HomeScreen',
     ContactScreen: 'ContactScreen',
     AboutScreen: 'AboutScreen',

@@ -3,7 +3,7 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Card, Image, Text, Button } from '@rneui/themed';
 
-import { Header } from '../components';
+import { Header, Footer } from '../components';
 import { colors, platform, strings, constants } from '../constants';
 import {
   cover,
@@ -35,7 +35,9 @@ export const HomeScreen = ({ navigation }) => {
           <Card containerStyle={styles.cardContainer}>
             <Card.Image style={styles.cardImage} source={homeGalleryFour}>
               <View style={styles.cardInnerContainer}>
-                <Text style={styles.cardTitle}>{cardHomeLocationTitle}</Text>
+                <Text h1 h1Style={styles.cardTitle}>
+                  {cardHomeLocationTitle}
+                </Text>
                 <Text style={styles.cardSubText}>
                   {cardHomeLocationSubText}
                 </Text>
@@ -54,7 +56,9 @@ export const HomeScreen = ({ navigation }) => {
           <Card containerStyle={styles.cardContainer}>
             <Card.Image style={styles.cardImage} source={homeGalleryThree}>
               <View style={styles.cardInnerContainer}>
-                <Text style={styles.cardTitle}>{cardHomeAboutTitle}</Text>
+                <Text h1 h1Style={styles.cardTitle}>
+                  {cardHomeAboutTitle}
+                </Text>
                 <Text style={styles.cardSubText}>{cardHomeAboutSubText}</Text>
                 <Button
                   onPress={() => navigation.navigate(about)}
@@ -71,8 +75,10 @@ export const HomeScreen = ({ navigation }) => {
           <Card containerStyle={styles.cardContainer}>
             <Card.Image style={styles.cardImage} source={homeGalleryOne}>
               <View style={styles.cardInnerContainer}>
-                <Text style={styles.cardTitle}>{cardHomeContactTitle}</Text>
-                <Text style={styles.cardSubText}>{cardHomeAboutSubText}</Text>
+                <Text h1 h1Style={styles.cardTitle}>
+                  {cardHomeContactTitle}
+                </Text>
+                <Text style={styles.cardSubText}>{cardHomeContactSubText}</Text>
                 <Button
                   onPress={() => navigation.navigate(contact)}
                   color={colors.cnciBlue}
@@ -86,6 +92,7 @@ export const HomeScreen = ({ navigation }) => {
             </Card.Image>
           </Card>
         </View>
+        <Footer />
       </ScrollView>
     </SafeAreaView>
   );
@@ -100,6 +107,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     height: '100%',
+    paddingBottom: 10,
   },
   coverImage: {
     width: '100%',
