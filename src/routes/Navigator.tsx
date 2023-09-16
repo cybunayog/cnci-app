@@ -8,7 +8,7 @@ import {
   ContactScreen,
   LocationScreen,
 } from '../screens';
-import { strings } from '../constants/constants';
+import { strings } from '../constants';
 
 const RootStack = createNativeStackNavigator();
 const MainStack = createNativeStackNavigator();

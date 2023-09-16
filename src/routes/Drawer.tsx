@@ -6,7 +6,7 @@ import {
   AboutScreen,
   LocationScreen,
 } from '../screens';
-import { colors, strings } from '../constants/constants';
+import { colors, strings } from '../constants';
 
 const HomeDrawer = createDrawerNavigator();
 
