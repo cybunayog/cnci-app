@@ -27,23 +27,23 @@ export const Header = () => {
     </TouchableOpacity>
   );
 
-  const WebCenterComponent = () =>
-    !isMobile &&
-    !(isMobileWidth && isWeb) && (
-      <View style={styles.middleContainer}>
-        {navHeaders.map((item: string, index: number) => (
-          <TouchableOpacity
-            onPress={() => {
-              navigate(item);
-            }}
-          >
-            <Text style={styles.middleContainerText} key={index}>
-              {item.toUpperCase()}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-    );
+  // const WebCenterComponent = () =>
+  //   !isMobile &&
+  //   !(isMobileWidth && isWeb) && (
+  //     <View style={styles.middleContainer}>
+  //       {navHeaders.map((item: string, index: number) => (
+  //         <TouchableOpacity
+  //           onPress={() => {
+  //             navigate(item);
+  //           }}
+  //         >
+  //           <Text style={styles.middleContainerText} key={index}>
+  //             {item.toUpperCase()}
+  //           </Text>
+  //         </TouchableOpacity>
+  //       ))}
+  //     </View>
+  //   );
 
   return (
     <RNEHeader
@@ -58,7 +58,7 @@ export const Header = () => {
         </TouchableOpacity>
       }
       rightContainerStyle={styles.sideContainer}
-      centerComponent={<WebCenterComponent />}
+      // centerComponent={<WebCenterComponent />}
       containerStyle={styles.headerContainer}
     />
   );
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     backgroundColor: cnciBlue,
   },
   sideContainer: {
-    margin: 5,
+    margin: 50,
   },
   middleContainer: {
     display: 'flex',

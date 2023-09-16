@@ -12,7 +12,7 @@ export const AboutScreen = () => {
     <SafeAreaView style={styles.safeAreaContainer}>
       <Header />
       <ScrollView style={{ marginTop: -1 }}>
-        <View>
+        <View style={styles.container}>
           <CoverImage style={styles.coverImage} source={homeGalleryOne} />
         </View>
         <Footer />
