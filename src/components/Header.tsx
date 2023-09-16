@@ -66,10 +66,11 @@ export const Header = () => {
         {navHeaders.map((item: string, index: number) => (
           <TouchableOpacity
             onPress={() => {
+              console.log('item:', item);
               if (item === locations) {
                 navigate(LocationScreen);
               }
-              navigate(`${item}Screen`);
+              navigate(item);
             }}
           >
             <Text style={styles.middleContainerText} key={index}>
