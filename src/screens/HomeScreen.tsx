@@ -5,15 +5,23 @@ import { Card, Image, Text, Button } from '@rneui/themed';
 
 import { Header } from '../components';
 import { colors, platform, strings, constants } from '../constants';
-import { cover, homeGalleryOne, homeGalleryTwo } from '../../assets/images';
+import {
+  cover,
+  homeGalleryFour,
+  homeGalleryOne,
+  homeGalleryThree,
+} from '../../assets/images';
 
-const { locations, about } = constants;
+const { locations, about, contact } = constants;
 const {
   cardHomeLocationButtonText,
   cardHomeLocationSubText,
   cardHomeLocationTitle,
   cardHomeAboutTitle,
   cardHomeAboutSubText,
+  cardHomeContactTitle,
+  cardHomeContactSubText,
+  cardHomeContactButtonText,
   learnMore,
 } = strings;
 
@@ -25,7 +33,7 @@ export const HomeScreen = ({ navigation }) => {
         <View style={styles.container}>
           <Image style={styles.coverImage} source={cover} />
           <Card containerStyle={styles.cardContainer}>
-            <Card.Image style={styles.cardImage} source={homeGalleryOne}>
+            <Card.Image style={styles.cardImage} source={homeGalleryFour}>
               <View style={styles.cardInnerContainer}>
                 <Text style={styles.cardTitle}>{cardHomeLocationTitle}</Text>
                 <Text style={styles.cardSubText}>
@@ -44,7 +52,7 @@ export const HomeScreen = ({ navigation }) => {
             </Card.Image>
           </Card>
           <Card containerStyle={styles.cardContainer}>
-            <Card.Image style={styles.cardImage} source={homeGalleryTwo}>
+            <Card.Image style={styles.cardImage} source={homeGalleryThree}>
               <View style={styles.cardInnerContainer}>
                 <Text style={styles.cardTitle}>{cardHomeAboutTitle}</Text>
                 <Text style={styles.cardSubText}>{cardHomeAboutSubText}</Text>
@@ -56,6 +64,23 @@ export const HomeScreen = ({ navigation }) => {
                   titleStyle={styles.cardButtonText}
                 >
                   {learnMore}
+                </Button>
+              </View>
+            </Card.Image>
+          </Card>
+          <Card containerStyle={styles.cardContainer}>
+            <Card.Image style={styles.cardImage} source={homeGalleryOne}>
+              <View style={styles.cardInnerContainer}>
+                <Text style={styles.cardTitle}>{cardHomeContactTitle}</Text>
+                <Text style={styles.cardSubText}>{cardHomeAboutSubText}</Text>
+                <Button
+                  onPress={() => navigation.navigate(contact)}
+                  color={colors.cnciBlue}
+                  style={styles.cardButtonContainer}
+                  buttonStyle={styles.cardButton}
+                  titleStyle={styles.cardButtonText}
+                >
+                  {cardHomeContactButtonText}
                 </Button>
               </View>
             </Card.Image>

@@ -25,7 +25,10 @@ const strings = {
     cardHomeLocationSubText: 'The doors are always open every week.',
     cardHomeLocationButtonText: 'Times & Locations',
     cardHomeAboutTitle: 'Our Purpose',
-    cardHomeAboutSubText: 'To proclaim Salvation, Healing, Deliverance, & the Second Coming of our Lord Jesus Christ',
+    cardHomeAboutSubText: `"To proclaim Salvation, Healing, Deliverance, & the Second Coming of our Lord Jesus Christ."`,
+    cardHomeContactTitle: 'Questions?',
+    cardHomeContactSubText: 'Feel free to reach out! We would love to hear from you.',
+    cardHomeContactButtonText: 'Get In Touch',
     learnMore: 'Learn More',
 };
 
