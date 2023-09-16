@@ -4,7 +4,7 @@ import { Text } from '@rneui/themed';
 import { Ionicons } from '@expo/vector-icons';
 import * as Linking from 'expo-linking';
 
-import { colors, strings } from '../constants';
+import { colors, strings, platform } from '../constants';
 
 const { footerText, cnciFBUrl } = strings;
 
@@ -12,12 +12,14 @@ export const Footer = (): React.JSX.Element => {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
-        <TouchableOpacity
-          style={styles.socialButton}
-          onPress={() => Linking.openURL(cnciFBUrl)}
-        >
-          <Ionicons name="logo-facebook" color={colors.white} size={20} />
-        </TouchableOpacity>
+        {!platform.isMobileWidth && !platform.isMobile && (
+          <TouchableOpacity
+            style={styles.socialButton}
+            onPress={() => Linking.openURL(cnciFBUrl)}
+          >
+            <Ionicons name="logo-facebook" color={colors.white} size={20} />
+          </TouchableOpacity>
+        )}
         <Text style={styles.footerText}>{footerText}</Text>
       </View>
     </View>
@@ -42,5 +44,6 @@ const styles = StyleSheet.create({
     color: colors.white,
     textAlign: 'center',
     margin: 'auto',
+    padding: platform.isMobileWidth && platform.isMobile ? 20 : undefined,
   },
 });
