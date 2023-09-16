@@ -6,7 +6,7 @@ const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 const platform = {
     isWeb: Platform.OS === 'web',
     isMobile: Platform.OS === 'android' || Platform.OS === 'ios',
-    isMobileHeight: screenWidth < 768,
+    isMobileWidth: screenWidth <= 768,
     windowWidth,
     windowHeight,
     screenWidth,

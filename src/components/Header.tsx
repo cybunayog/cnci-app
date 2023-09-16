@@ -8,7 +8,7 @@ import { colors, platform, strings, screens } from '../constants';
 import { logo } from '../../assets/images';
 
 const { cnciBlue, white } = colors;
-const { isMobile, isMobileHeight } = platform;
+const { isMobile, isMobileWidth } = platform;
 const { about, locations, contact, home } = strings;
 
 const navHeaders = [about, locations, contact];
@@ -29,7 +29,7 @@ export const Header = () => {
 
   const WebCenterComponent = () =>
     !isMobile &&
-    !isMobileHeight && (
+    !isMobileWidth && (
       <View style={styles.middleContainer}>
         {navHeaders.map((item: string, index: number) => (
           <TouchableOpacity
