@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-	View,
 	TouchableOpacity,
 	Image,
-	Text,
 	StyleSheet,
 } from 'react-native';
 import {
@@ -55,7 +53,6 @@ export const Header = () => {
 				</TouchableOpacity>
 			}
 			rightContainerStyle={styles.sideContainer}
-			// centerComponent={<WebCenterComponent />}
 			containerStyle={styles.headerContainer}
 		/>
 	);
@@ -69,15 +66,6 @@ const styles = StyleSheet.create({
 	},
 	sideContainer: {
 		margin: 50,
-	},
-	middleContainer: {
-		display: 'flex',
-		flex: 1,
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		textAlign: 'center',
-		flexDirection: 'row',
-		gap: 100,
 	},
 	middleContainerText: {
 		flex: 1,
