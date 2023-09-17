@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-	View,
 	TouchableOpacity,
 	Image,
-	Text,
 	StyleSheet,
 } from 'react-native';
 import {
@@ -17,7 +15,6 @@ import { colors, platform, constants } from '../constants';
 import { logo } from '../../assets/images';
 
 const { cnciBlue, white } = colors;
-const { isMobile, isMobileWidth, isWeb } = platform;
 const { about, locations, contact, home } = constants;
 
 const navHeaders = [about, locations, contact];
@@ -39,24 +36,6 @@ export const Header = () => {
 		</TouchableOpacity>
 	);
 
-	// const WebCenterComponent = () =>
-	//   !isMobile &&
-	//   !(isMobileWidth && isWeb) && (
-	//     <View style={styles.middleContainer}>
-	//       {navHeaders.map((item: string, index: number) => (
-	//         <TouchableOpacity
-	//           onPress={() => {
-	//             navigate(item);
-	//           }}
-	//         >
-	//           <Text style={styles.middleContainerText} key={index}>
-	//             {item.toUpperCase()}
-	//           </Text>
-	//         </TouchableOpacity>
-	//       ))}
-	//     </View>
-	//   );
-
 	return (
 		<RNEHeader
 			leftComponent={<HeaderLeftComponent />}
@@ -74,7 +53,6 @@ export const Header = () => {
 				</TouchableOpacity>
 			}
 			rightContainerStyle={styles.sideContainer}
-			// centerComponent={<WebCenterComponent />}
 			containerStyle={styles.headerContainer}
 		/>
 	);
@@ -88,15 +66,6 @@ const styles = StyleSheet.create({
 	},
 	sideContainer: {
 		margin: 50,
-	},
-	middleContainer: {
-		display: 'flex',
-		flex: 1,
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		textAlign: 'center',
-		flexDirection: 'row',
-		gap: 100,
 	},
 	middleContainerText: {
 		flex: 1,

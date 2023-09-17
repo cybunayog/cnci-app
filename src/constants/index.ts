@@ -1,4 +1,5 @@
 import { Platform, Dimensions } from 'react-native'
+import { homeGalleryFour, homeGalleryThree, homeGalleryTwo, laIcon } from '../../assets/images';
 
 const {width: screenWidth, height: screenHeight} = Dimensions.get('screen');
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
@@ -7,6 +8,7 @@ export const platform: Record<string, any> = {
     isWeb: Platform.OS === 'web',
     isMobile: Platform.OS === 'android' || Platform.OS === 'ios',
     isMobileWidth: screenWidth <= 768,
+    isMobileHeight: screenHeight <= 896,
     windowWidth,
     windowHeight,
     screenWidth,
@@ -33,6 +35,7 @@ export const strings: Record<string, string> = {
     cardHomeContactButtonText: 'Get In Touch',
     aboutHeader: 'WHO WE ARE',
     contactHeader: 'STAY IN TOUCH',
+    locationHeader: `LOCATIONS & TIMES`,
     contactInfo: 'Contact Information',
     learnMore: 'Learn More',
     footerText: `© 2023 CNCI Los Angeles${'\t'}|${'\t'}401 E Colorado St, Glendale, CA 91205`,
@@ -60,3 +63,65 @@ export const screens: Record<string, string> = {
     LocationScreen: 'LocationScreen',
 };
  
+
+export const locations = [
+	 {
+        source: laIcon,
+		title: 'Los Angeles Chapter',
+		address: '401 E Colorado St, Glendale, CA 91205',
+		time: '9:00AM - 11:00AM',
+		addressLink:
+			'https://tinyurl.com/cnci-la-location',
+	},
+];
+
+export const homeCards = [
+    {
+        page: constants.locations,
+        image: homeGalleryFour,
+        title: strings.cardHomeLocationTitle,
+        subtext: strings.cardHomeLocationSubText,
+        buttonText: strings.cardHomeLocationButtonText
+    },
+    {
+        page: constants.about,
+        image: homeGalleryThree,
+        title: strings.cardHomeAboutTitle,
+        subtext: strings.cardHomeAboutSubText,
+        buttonText: strings.learnMore
+    },
+    {
+        page: constants.contact,
+        image: homeGalleryTwo,
+        title: strings.cardHomeContactTitle,
+        subtext: strings.cardHomeContactSubText,
+        buttonText: strings.cardHomeContactButtonText
+    }
+];
+
+export const aboutCards = [
+    {
+        cardContainerStyle: {
+            justifyContent: 'flex-start',
+            flex:
+                (platform.isMobileWidth && platform.isWeb) ||
+                platform.isMobile
+                    ? 2
+                    : 1,
+        },
+        title: strings.missionStatementTitle,
+        subtext: strings.missionStatementSubText
+    },
+    {
+        cardContainerStyle: {
+            justifyContent: 'flex-start',
+            flex:
+                (platform.isMobileWidth && platform.isWeb) ||
+                platform.isMobile
+                    ? 1.25
+                    : 1,
+        },
+        title: strings.cardHomeAboutTitle,
+        subtext: strings.cardHomeAboutSubText
+    }
+];

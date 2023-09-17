@@ -8,31 +8,8 @@ import {
 	Footer,
 	CardWithContent,
 } from '../components';
-import {
-	colors,
-	platform,
-	strings,
-	constants,
-} from '../constants';
-import {
-	cover,
-	homeGalleryFour,
-	homeGalleryOne,
-	homeGalleryThree,
-} from '../../assets/images';
-
-const { locations, about, contact } = constants;
-const {
-	cardHomeLocationButtonText,
-	cardHomeLocationSubText,
-	cardHomeLocationTitle,
-	cardHomeAboutTitle,
-	cardHomeAboutSubText,
-	cardHomeContactTitle,
-	cardHomeContactSubText,
-	cardHomeContactButtonText,
-	learnMore,
-} = strings;
+import { colors, platform, homeCards } from '../constants';
+import { cover } from '../../assets/images';
 
 export const HomeScreen = ({ navigation }) => {
 	return (
@@ -44,30 +21,19 @@ export const HomeScreen = ({ navigation }) => {
 						style={styles.coverImage}
 						source={cover}
 					/>
-					<CardWithContent
-						hasButton
-						onPress={() => navigation.navigate(locations)}
-						image={homeGalleryFour}
-						title={cardHomeLocationTitle}
-						subtext={cardHomeLocationSubText}
-						buttonText={cardHomeLocationButtonText}
-					/>
-					<CardWithContent
-						hasButton
-						onPress={() => navigation.navigate(about)}
-						image={homeGalleryThree}
-						title={cardHomeAboutTitle}
-						subtext={cardHomeAboutSubText}
-						buttonText={learnMore}
-					/>
-					<CardWithContent
-						hasButton
-						onPress={() => navigation.navigate(contact)}
-						image={homeGalleryOne}
-						title={cardHomeContactTitle}
-						subtext={cardHomeContactSubText}
-						buttonText={cardHomeContactButtonText}
-					/>
+					{homeCards.map((content, key) => (
+						<CardWithContent
+							key={key}
+							hasButton
+							onPress={() =>
+								navigation.navigate(content.page)
+							}
+							image={content.image}
+							title={content.title}
+							subtext={content.subtext}
+							buttonText={content.buttonText}
+						/>
+					))}
 				</View>
 				<Footer />
 			</ScrollView>

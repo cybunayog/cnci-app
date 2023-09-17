@@ -53,8 +53,8 @@ export const CardWithContent = ({
 			]}
 		>
 			<Text
-				h1
-				h1Style={[styles.cardTitle, titleStyle]}
+				h2
+				h2Style={[styles.cardTitle, titleStyle]}
 			>
 				{title}
 			</Text>

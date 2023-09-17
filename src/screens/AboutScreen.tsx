@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import {
+	View,
+	ViewStyle,
+	StyleSheet,
+	ScrollView,
+	StyleProp,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Image as CoverImage, Text } from '@rneui/themed';
 
@@ -8,7 +14,12 @@ import {
 	Footer,
 	CardWithContent,
 } from '../components';
-import { platform, strings, colors } from '../constants';
+import {
+	platform,
+	strings,
+	colors,
+	aboutCards,
+} from '../constants';
 import { homeGalleryOne } from '../../assets/images';
 
 export const AboutScreen = () => {
@@ -16,38 +27,23 @@ export const AboutScreen = () => {
 		style,
 	}: Partial<any | undefined>) => (
 		<View style={style}>
-			<CardWithContent
-				cardContainerStyle={{
-					justifyContent: 'flex-start',
-					flex:
-						(platform.isMobileWidth && platform.isWeb) ||
-						platform.isMobile
-							? 2
-							: 1,
-				}}
-				cardInnerContainerStyle={styles.innerCard}
-				titleStyle={styles.title}
-				hasButton={false}
-				title={strings.missionStatementTitle}
-				subtextStyle={styles.subText}
-				subtext={strings.missionStatementSubText}
-			/>
-			<CardWithContent
-				cardContainerStyle={{
-					justifyContent: 'flex-start',
-					flex:
-						(platform.isMobileWidth && platform.isWeb) ||
-						platform.isMobile
-							? 1.25
-							: 1,
-				}}
-				cardInnerContainerStyle={styles.innerCard}
-				titleStyle={styles.title}
-				hasButton={false}
-				title={strings.cardHomeAboutTitle}
-				subtextStyle={styles.subText}
-				subtext={strings.cardHomeAboutSubText}
-			/>
+			{aboutCards.map((content, key) => {
+				const { cardContainerStyle, title, subtext } =
+					content;
+				return (
+					<CardWithContent
+						cardContainerStyle={
+							cardContainerStyle as StyleProp<ViewStyle>
+						}
+						cardInnerContainerStyle={styles.innerCard}
+						titleStyle={styles.title}
+						hasButton={false}
+						title={title}
+						subtextStyle={styles.subText}
+						subtext={subtext}
+					/>
+				);
+			})}
 		</View>
 	);
 
@@ -65,8 +61,8 @@ export const AboutScreen = () => {
 						source={homeGalleryOne}
 					/>
 					<Text
-						h1
-						h1Style={{
+						h2
+						h2Style={{
 							textAlign: 'center',
 							margin: 20,
 							fontWeight: '500',
