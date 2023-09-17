@@ -61,9 +61,10 @@ export const LocationScreen = () => {
 						))}
 					</CardWithContent>
 				</View>
+				{!platform.isMobileHeight && <Footer />}
 			</ScrollView>
 			{/* Move <Footer /> inside of <ScrollView /> if content gets bigger*/}
-			<Footer />
+			{platform.isMobileHeight && <Footer />}
 		</SafeAreaView>
 	);
 };

@@ -1,6 +1,5 @@
 export { default as logo } from './logo.png';
 export { default as cover } from './cover.jpg'
-export { default as contact } from './contact.jpg';
 export { default as homeGalleryOne } from './gallery_1.jpg';
 export { default as homeGalleryTwo } from './gallery_2.jpg';
 export { default as homeGalleryThree } from './gallery_3.jpg';

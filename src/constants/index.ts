@@ -1,5 +1,5 @@
 import { Platform, Dimensions } from 'react-native'
-import { laIcon } from '../../assets/images';
+import { homeGalleryFour, homeGalleryThree, homeGalleryTwo, laIcon } from '../../assets/images';
 
 const {width: screenWidth, height: screenHeight} = Dimensions.get('screen');
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
@@ -8,6 +8,7 @@ export const platform: Record<string, any> = {
     isWeb: Platform.OS === 'web',
     isMobile: Platform.OS === 'android' || Platform.OS === 'ios',
     isMobileWidth: screenWidth <= 768,
+    isMobileHeight: screenHeight <= 896,
     windowWidth,
     windowHeight,
     screenWidth,
@@ -73,3 +74,27 @@ export const locations = [
 			'https://tinyurl.com/cnci-la-location',
 	},
 ];
+
+export const homeCards = [
+    {
+        page: constants.locations,
+        image: homeGalleryFour,
+        title: strings.cardHomeLocationTitle,
+        subtext: strings.cardHomeLocationSubText,
+        buttonText: strings.cardHomeLocationButtonText
+    },
+    {
+        page: constants.about,
+        image: homeGalleryThree,
+        title: strings.cardHomeAboutTitle,
+        subtext: strings.cardHomeAboutSubText,
+        buttonText: strings.learnMore
+    },
+    {
+        page: constants.contact,
+        image: homeGalleryTwo,
+        title: strings.cardHomeContactTitle,
+        subtext: strings.cardHomeContactSubText,
+        buttonText: strings.cardHomeContactButtonText
+    }
+]
