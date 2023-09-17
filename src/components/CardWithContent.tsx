@@ -19,7 +19,8 @@ import { colors, platform } from '../constants';
 type CardWithContentProps = {
 	hasButton: boolean;
 	title: string;
-	subtext: string;
+	subtext?: string;
+	children?: React.ReactNode;
 	titleStyle?: StyleProp<TextStyle>;
 	subtextStyle?: StyleProp<TextStyle>;
 	cardContainerStyle?: StyleProp<ViewStyle>;
@@ -41,6 +42,7 @@ export const CardWithContent = ({
 	cardInnerContainerStyle,
 	buttonText,
 	buttonColor = colors.cnciRed,
+	children,
 	onPress = () => null,
 }: CardWithContentProps) => {
 	const InnerComponent = () => (
@@ -87,6 +89,8 @@ export const CardWithContent = ({
 				>
 					<InnerComponent />
 				</Card.Image>
+			) : children ? (
+				<View style={{ flex: 1 }}>{children}</View>
 			) : (
 				<InnerComponent />
 			)}

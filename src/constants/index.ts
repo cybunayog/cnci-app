@@ -19,6 +19,7 @@ export const colors: Record<string, string> = {
     lightGray: '#dadada',
     white: '#fff',
     black: '#000',
+    borderGray: '#ccc',
 };
 
 export const strings: Record<string, string> = {
@@ -31,13 +32,17 @@ export const strings: Record<string, string> = {
     cardHomeContactSubText: 'Feel free to reach out! We would love to hear from you.',
     cardHomeContactButtonText: 'Get In Touch',
     aboutHeader: 'WHO WE ARE',
+    contactHeader: 'STAY IN TOUCH',
+    contactInfo: 'Contact Information',
     learnMore: 'Learn More',
     footerText: `© 2023 CNCI Los Angeles${'\t'}|${'\t'}401 E Colorado St, Glendale, CA 91205`,
     cnciFBUrl: 'https://www.facebook.com/people/CNCI-Los-Angeles-California-USA/61551495982602/',
     bibleApiUrl: 'https://bible-api.com',
     missionStatementTitle: 'Mission Statement',
     missionStatementSubText: 'We are an Evangelistic, Missionary church called to influence this generation for Christ.\n' 
-        + '\nOur congregation embodies strong values of faith, righteousness, discipleship, and ministry, all directed towards fulfilling the GREAT COMMISSION.' 
+        + '\nOur congregation embodies strong values of faith, righteousness, discipleship, and ministry, all directed towards fulfilling the GREAT COMMISSION.',
+    emailErrorMessage: 'Something is missing, please fill the form.',
+    emailSuccessMessage: 'Email sent!',
 };
 
 export const constants: Record<string, string> = {
@@ -45,6 +50,7 @@ export const constants: Record<string, string> = {
     locations: 'Locations',
     contact: 'Contact',
     home: 'Home',
+    send: 'Send'
 };
 
 export const screens: Record<string, string> = {
