@@ -65,8 +65,8 @@ export const AboutScreen = () => {
 						source={homeGalleryOne}
 					/>
 					<Text
-						h1
-						h1Style={{
+						h2
+						h2Style={{
 							textAlign: 'center',
 							margin: 20,
 							fontWeight: '500',

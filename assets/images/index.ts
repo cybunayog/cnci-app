@@ -11,3 +11,4 @@ export { default as oxnardIcon } from './oxnard-icon.png';
 export { default as stockOne } from './test.jpg';
 export { default as stockTwo } from './test2.jpg';
 export { default as stockThree } from './test3.jpg'
+export { default as churchBuilding } from './church.jpg';

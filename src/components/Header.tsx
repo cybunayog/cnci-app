@@ -17,7 +17,6 @@ import { colors, platform, constants } from '../constants';
 import { logo } from '../../assets/images';
 
 const { cnciBlue, white } = colors;
-const { isMobile, isMobileWidth, isWeb } = platform;
 const { about, locations, contact, home } = constants;
 
 const navHeaders = [about, locations, contact];
@@ -38,24 +37,6 @@ export const Header = () => {
 			/>
 		</TouchableOpacity>
 	);
-
-	// const WebCenterComponent = () =>
-	//   !isMobile &&
-	//   !(isMobileWidth && isWeb) && (
-	//     <View style={styles.middleContainer}>
-	//       {navHeaders.map((item: string, index: number) => (
-	//         <TouchableOpacity
-	//           onPress={() => {
-	//             navigate(item);
-	//           }}
-	//         >
-	//           <Text style={styles.middleContainerText} key={index}>
-	//             {item.toUpperCase()}
-	//           </Text>
-	//         </TouchableOpacity>
-	//       ))}
-	//     </View>
-	//   );
 
 	return (
 		<RNEHeader
