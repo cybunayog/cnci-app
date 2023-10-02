@@ -46,6 +46,7 @@ export const strings: Record<string, string> = {
         + '\nOur congregation embodies strong values of faith, righteousness, discipleship, and ministry, all directed towards fulfilling the GREAT COMMISSION.',
     emailErrorMessage: 'Something is missing, please fill the form.',
     emailSuccessMessage: 'Email sent!',
+    tempEmailMessage: `This feature isn't available at the moment. For now, please email: cnciusa.la@gmail.com`,
 };
 
 export const constants: Record<string, string> = {
