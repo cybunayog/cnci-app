@@ -27,8 +27,8 @@ export const ContactForm = () => {
 				: Alert.alert(strings.emailErrorMessage);
 		} else {
 			platform.isWeb
-				? alert(strings.emailSuccessMessage)
-				: Alert.alert(strings.emailSuccessMessage);
+				? alert(strings.tempEmailMessage)
+				: Alert.alert(strings.tempEmailMessage);
 		}
 	};
 
