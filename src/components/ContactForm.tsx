@@ -30,6 +30,10 @@ export const ContactForm = () => {
 				? alert(strings.tempEmailMessage)
 				: Alert.alert(strings.tempEmailMessage);
 		}
+
+		// Clear form after submit
+		setEmail('');
+		setContent('');
 	};
 
 	return (
