@@ -6,7 +6,11 @@ import { Navigator } from './routes/Navigator';
 
 const MetaHeader = () => (
 	<Helmet>
-		<meta name='cnci-mobile-web-app' />
+		<meta
+			name='cnci-mobile-web-app'
+			httpEquiv='Content-Security-Policy'
+			content="script-src 'self'"
+		/>
 	</Helmet>
 );
 
