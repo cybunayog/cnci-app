@@ -1,16 +1,16 @@
-import React from "react";
-import { TouchableOpacity, Image, StyleSheet } from "react-native";
-import { useNavigation, DrawerActions } from "@react-navigation/native";
-import { Ionicons } from "@expo/vector-icons";
-import { Header as RNEHeader } from "@rneui/themed";
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
+import { Header as RNEHeader } from '@rneui/themed';
+import React from 'react';
+import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-import { colors, platform, constants } from "../constants";
-import { logo } from "../../assets/images";
+import { logo } from '../../assets/images';
+import { colors, platform, constants } from '../constants';
 
 const { cnciBlue, white } = colors;
 const { about, locations, contact, home } = constants;
 
-const navHeaders = [about, locations, contact];
+// const navHeaders = [about, locations, contact];
 
 export const Header = () => {
   const { navigate, dispatch } = useNavigation();
@@ -20,8 +20,7 @@ export const Header = () => {
       style={styles.sideContainer}
       onPress={() => {
         navigate(home);
-      }}
-    >
+      }}>
       <Image style={styles.logo} source={logo} />
     </TouchableOpacity>
   );
@@ -33,8 +32,7 @@ export const Header = () => {
         <TouchableOpacity
           onPress={() => {
             dispatch(DrawerActions.toggleDrawer());
-          }}
-        >
+          }}>
           <Ionicons name="menu-outline" color={white} size={40} />
         </TouchableOpacity>
       }
@@ -46,7 +44,7 @@ export const Header = () => {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    width: "100%",
+    width: '100%',
     height: 85,
     backgroundColor: cnciBlue,
   },

@@ -1,8 +1,8 @@
-import React from "react";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Helmet } from "react-helmet";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { Navigator } from "./routes/Navigator";
+import { Navigator } from './routes/Navigator';
 
 const MetaHeader = () => (
   <Helmet>

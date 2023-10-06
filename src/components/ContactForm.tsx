@@ -1,29 +1,25 @@
-import React, { useState } from "react";
-import { View, Alert, TextInput, StyleSheet } from "react-native";
-import { Text, Button } from "@rneui/themed";
+import { Text, Button } from '@rneui/themed';
+import React, { useState } from 'react';
+import { View, Alert, TextInput, StyleSheet } from 'react-native';
 
-import { colors, platform, strings, constants } from "../constants";
+import { colors, platform, strings, constants } from '../constants';
 
 export const ContactForm = () => {
-  const [email, setEmail] = useState<string>("");
-  const [content, setContent] = useState<string>("");
+  const [email, setEmail] = useState<string>('');
+  const [content, setContent] = useState<string>('');
 
   const handleSubmit = (): void => {
     // TODO: Call email API to handle email, for now throw an alert.
 
     if (!email || !content) {
-      platform.isWeb
-        ? alert(strings.emailErrorMessage)
-        : Alert.alert(strings.emailErrorMessage);
+      platform.isWeb ? alert(strings.emailErrorMessage) : Alert.alert(strings.emailErrorMessage);
     } else {
-      platform.isWeb
-        ? alert(strings.tempEmailMessage)
-        : Alert.alert(strings.tempEmailMessage);
+      platform.isWeb ? alert(strings.tempEmailMessage) : Alert.alert(strings.tempEmailMessage);
     }
 
     // Clear form after submit
-    setEmail("");
-    setContent("");
+    setEmail('');
+    setContent('');
   };
 
   return (
@@ -50,8 +46,7 @@ export const ContactForm = () => {
         color={colors.cnciBlue}
         buttonStyle={styles.button}
         onPress={handleSubmit}
-        titleStyle={styles.buttonText}
-      >
+        titleStyle={styles.buttonText}>
         {constants.send}
       </Button>
     </View>
@@ -60,13 +55,13 @@ export const ContactForm = () => {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "flex-start",
+    justifyContent: 'flex-start',
     padding: 20,
   },
   label: {
     fontSize: 20,
     marginBottom: 6,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   input: {
     borderWidth: 1,

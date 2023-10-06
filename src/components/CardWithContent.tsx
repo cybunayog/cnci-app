@@ -1,4 +1,5 @@
-import React from "react";
+import { Card, CardProps, Text, Button } from '@rneui/themed';
+import React from 'react';
 import {
   View,
   StyleSheet,
@@ -6,10 +7,9 @@ import {
   TextStyle,
   ViewStyle,
   StyleProp,
-} from "react-native";
-import { Card, CardProps, Text, Button } from "@rneui/themed";
+} from 'react-native';
 
-import { colors, platform } from "../constants";
+import { colors, platform } from '../constants';
 
 type CardWithContentProps = {
   hasButton: boolean;
@@ -52,8 +52,7 @@ export const CardWithContent = ({
           color={buttonColor}
           style={styles.cardButtonContainer}
           buttonStyle={styles.cardButton}
-          titleStyle={styles.cardButtonText}
-        >
+          titleStyle={styles.cardButtonText}>
           {buttonText}
         </Button>
       )}
@@ -80,48 +79,44 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flex: 1,
     padding: 0,
-    justifyContent: "center",
-    marginHorizontal: "auto",
-    height: platform.isMobileWidth
-      ? platform.windowWidth
-      : platform.windowWidth / 2,
-    width: platform.isMobileWidth ? "90%" : "50%",
+    justifyContent: 'center',
+    marginHorizontal: 'auto',
+    height: platform.isMobileWidth ? platform.windowWidth : platform.windowWidth / 2,
+    width: platform.isMobileWidth ? '90%' : '50%',
   },
   cardTitle: {
     color: colors.white,
-    textAlign: "center",
-    fontWeight: "bold",
+    textAlign: 'center',
+    fontWeight: 'bold',
     marginBottom: 4,
     fontSize: platform.isMobileWidth ? 20 : 40,
   },
   cardImage: {
-    height: platform.isMobileWidth
-      ? platform.windowWidth
-      : platform.windowWidth / 2,
+    height: platform.isMobileWidth ? platform.windowWidth : platform.windowWidth / 2,
     padding: 0,
     borderRadius: 10,
   },
   cardInnerContainer: {
-    justifyContent: "center",
+    justifyContent: 'center',
     marginTop: platform.isMobileWidth ? 10 : 30,
     paddingHorizontal: 5,
   },
   cardSubText: {
     color: colors.white,
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 20,
   },
   cardButtonContainer: {
     padding: 10,
   },
   cardButton: {
-    margin: "auto",
+    margin: 'auto',
     paddingHorizontal: 20,
     borderRadius: 10,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   cardButtonText: {
-    fontWeight: "500",
+    fontWeight: '500',
     letterSpacing: 0.5,
   },
 });

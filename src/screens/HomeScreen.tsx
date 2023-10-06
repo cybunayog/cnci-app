@@ -1,11 +1,11 @@
-import React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Image as CoverImage } from "@rneui/themed";
+import { Image as CoverImage } from '@rneui/themed';
+import React from 'react';
+import { View, StyleSheet, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Header, Footer, CardWithContent } from "../components";
-import { colors, platform, homeCards } from "../constants";
-import { cover } from "../../assets/images";
+import { cover } from '../../assets/images';
+import { Header, Footer, CardWithContent } from '../components';
+import { colors, platform, homeCards } from '../constants';
 
 export const HomeScreen = ({ navigation }) => {
   return (
@@ -39,12 +39,12 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: "center",
-    height: "100%",
+    justifyContent: 'center',
+    height: '100%',
     paddingBottom: 10,
   },
   coverImage: {
-    width: "100%",
+    width: '100%',
     height: platform.windowWidth / 2,
   },
 });

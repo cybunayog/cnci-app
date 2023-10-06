@@ -1,9 +1,9 @@
-import React from "react";
-import { View, StyleSheet, ImageSourcePropType } from "react-native";
-import * as Linking from "expo-linking";
+import { Image as IconImage, Text } from '@rneui/base';
+import * as Linking from 'expo-linking';
+import React from 'react';
+import { View, StyleSheet, ImageSourcePropType } from 'react-native';
 
-import { Image as IconImage, Text } from "@rneui/base";
-import { platform } from "../constants";
+import { platform } from '../constants';
 
 type LocationCardProps = {
   source: ImageSourcePropType;
@@ -13,21 +13,12 @@ type LocationCardProps = {
   time: string;
 };
 
-export const LocationCard = ({
-  source,
-  title,
-  address,
-  time,
-  addressLink,
-}: LocationCardProps) => {
+export const LocationCard = ({ source, title, address, time, addressLink }: LocationCardProps) => {
   return (
     <View style={styles.container}>
       <IconImage source={source} style={styles.icon} />
       <Text h4>{title}</Text>
-      <Text
-        style={styles.description}
-        onPress={() => Linking.openURL(addressLink)}
-      >
+      <Text style={styles.description} onPress={() => Linking.openURL(addressLink)}>
         {address}
       </Text>
       <Text style={styles.description}>{time}</Text>
@@ -37,9 +28,9 @@ export const LocationCard = ({
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
-    margin: "auto",
-    alignItems: "center",
+    justifyContent: 'center',
+    margin: 'auto',
+    alignItems: 'center',
     padding: 20,
   },
   icon: {

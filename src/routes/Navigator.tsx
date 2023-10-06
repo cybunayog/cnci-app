@@ -1,14 +1,10 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
 
-import { Drawer } from "./Drawer";
-import {
-  HomeScreen,
-  AboutScreen,
-  ContactScreen,
-  LocationScreen,
-} from "../screens";
-import { strings } from "../constants";
+import { Drawer } from './Drawer';
+import { strings } from '../constants';
+import { HomeScreen, AboutScreen, ContactScreen, LocationScreen } from '../screens';
 
 const RootStack = createNativeStackNavigator();
 const MainStack = createNativeStackNavigator();
@@ -17,10 +13,7 @@ const HomeStack = () => {
   const { Navigator, Screen } = MainStack;
 
   return (
-    <Navigator
-      initialRouteName={strings.home}
-      screenOptions={{ headerShown: false }}
-    >
+    <Navigator initialRouteName={strings.home} screenOptions={{ headerShown: false }}>
       <Screen name={strings.home} component={HomeScreen} />
       <Screen name={strings.about} component={AboutScreen} />
       <Screen name={strings.contact} component={ContactScreen} />
@@ -34,10 +27,7 @@ export const Navigator = () => {
 
   return (
     <NavigationContainer>
-      <RootNavigator
-        initialRouteName="HomeDrawer"
-        screenOptions={{ headerShown: false }}
-      >
+      <RootNavigator initialRouteName="HomeDrawer" screenOptions={{ headerShown: false }}>
         <Screen name="HomeDrawer" component={Drawer} />
         <Screen name="HomeStack" component={HomeStack} />
       </RootNavigator>

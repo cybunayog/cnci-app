@@ -1,12 +1,8 @@
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import React from 'react';
 
-import {
-  HomeScreen,
-  ContactScreen,
-  AboutScreen,
-  LocationScreen,
-} from "../screens";
-import { colors, constants } from "../constants";
+import { colors, constants } from '../constants';
+import { HomeScreen, ContactScreen, AboutScreen, LocationScreen } from '../screens';
 
 const { home, about, contact, locations } = constants;
 
@@ -19,17 +15,16 @@ export const Drawer = () => {
     <Navigator
       screenOptions={{
         drawerActiveBackgroundColor: colors.lightGray,
-        drawerPosition: "right",
+        drawerPosition: 'right',
         headerShown: false,
-        drawerType: "front",
+        drawerType: 'front',
         drawerLabelStyle: {
           color: colors.black,
           fontSize: 20,
-          fontWeight: "normal",
-          textTransform: "uppercase",
+          fontWeight: 'normal',
+          textTransform: 'uppercase',
         },
-      }}
-    >
+      }}>
       <Screen name={home} component={HomeScreen} />
       <Screen name={about} component={AboutScreen} />
       <Screen name={contact} component={ContactScreen} />

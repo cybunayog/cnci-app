@@ -1,24 +1,20 @@
 {
-	"compilerOptions": {
-		"target": "es6",
-		"module": "commonjs",
-		"outDir": "web-build",
-		"rootDir": ".",
-		"jsx": "react",
-		"baseUrl": "./",
-		"allowJs": true,
-		"skipLibCheck": true,
-		"sourceMap": true,
-		"moduleResolution": "node",
-		"allowSyntheticDefaultImports": true,
-		"esModuleInterop": true
-	},
-	"types": ["react", "react-dom", "react-native"],
-	"exclude": [
-		"node_modules",
-		"babel.config.js",
-		"web-build"
-	],
-	"compileOnSave": true,
-	"extends": "expo/tsconfig.base"
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "web-build",
+    "rootDir": ".",
+    "jsx": "react",
+    "baseUrl": "./",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "types": ["react", "react-dom", "react-native"],
+  "exclude": ["node_modules", "babel.config.js", "web-build", "**/*.d.ts"],
+  "compileOnSave": false,
+  "extends": "expo/tsconfig.base"
 }
