@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Card, type CardProps, Text, Button } from '@rneui/themed';
 import React from 'react';
 import {
@@ -9,7 +10,7 @@ import {
   type StyleProp,
 } from 'react-native';
 
-import { colors, platform } from '../constants';
+import { colors, platform, platformMeasurement } from '../constants';
 
 type CardWithContentProps = {
   hasButton: boolean;
@@ -81,7 +82,9 @@ const styles = StyleSheet.create({
     padding: 0,
     justifyContent: 'center',
     marginHorizontal: 'auto',
-    height: platform.isMobileWidth ? platform.windowWidth : platform.windowWidth / 2,
+    height: platform.isMobileWidth
+      ? platformMeasurement.windowWidth
+      : platformMeasurement.windowWidth / 2,
     width: platform.isMobileWidth ? '90%' : '50%',
   },
   cardTitle: {
@@ -92,7 +95,9 @@ const styles = StyleSheet.create({
     fontSize: platform.isMobileWidth ? 20 : 40,
   },
   cardImage: {
-    height: platform.isMobileWidth ? platform.windowWidth : platform.windowWidth / 2,
+    height: platform.isMobileWidth
+      ? platformMeasurement.windowWidth
+      : platformMeasurement.windowWidth / 2,
     padding: 0,
     borderRadius: 10,
   },

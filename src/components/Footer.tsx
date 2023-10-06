@@ -12,7 +12,9 @@ export const Footer = (): React.JSX.Element => {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
-        <TouchableOpacity style={styles.socialButton} onPress={() => Linking.openURL(cnciFBUrl)}>
+        <TouchableOpacity
+          style={styles.socialButton}
+          onPress={async () => await Linking.openURL(cnciFBUrl)}>
           <Ionicons name="logo-facebook" color={colors.white} size={20} />
         </TouchableOpacity>
 

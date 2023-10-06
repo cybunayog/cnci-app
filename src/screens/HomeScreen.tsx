@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { cover } from '../../assets/images';
 import { Header, Footer, CardWithContent } from '../components';
-import { colors, platform, homeCards } from '../constants';
+import { colors, platformMeasurement, homeCards } from '../constants';
 
 export const HomeScreen = ({ navigation }: any): React.JSX.Element => {
   return (
@@ -45,6 +45,6 @@ const styles = StyleSheet.create({
   },
   coverImage: {
     width: '100%',
-    height: platform.windowWidth / 2,
+    height: platformMeasurement.windowWidth / 2,
   },
 });
