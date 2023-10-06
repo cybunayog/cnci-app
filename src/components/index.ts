@@ -5,11 +5,4 @@ import { Header } from "./Header";
 import { LocationCard } from "./LocationCard";
 import { Footer } from "./Footer";
 
-export { 
-    CardWithContent,
-    Carousel,
-    ContactForm,
-    Footer,
-    LocationCard,
-    Header
-};
+export { CardWithContent, Carousel, ContactForm, Footer, LocationCard, Header };
