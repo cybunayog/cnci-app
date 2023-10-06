@@ -9,7 +9,7 @@ import { HomeScreen, AboutScreen, ContactScreen, LocationScreen } from '../scree
 const RootStack = createNativeStackNavigator();
 const MainStack = createNativeStackNavigator();
 
-const HomeStack = () => {
+const HomeStack = (): React.JSX.Element => {
   const { Navigator, Screen } = MainStack;
 
   return (
@@ -22,7 +22,7 @@ const HomeStack = () => {
   );
 };
 
-export const Navigator = () => {
+export const Navigator = (): React.JSX.Element => {
   const { Navigator: RootNavigator, Screen } = RootStack;
 
   return (

@@ -7,7 +7,7 @@ import { cover } from '../../assets/images';
 import { Header, Footer, CardWithContent } from '../components';
 import { colors, platform, homeCards } from '../constants';
 
-export const HomeScreen = ({ navigation }) => {
+export const HomeScreen = ({ navigation }: any): React.JSX.Element => {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <Header />

@@ -5,17 +5,17 @@ import React from 'react';
 import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 import { logo } from '../../assets/images';
-import { colors, platform, constants } from '../constants';
+import { colors, constants } from '../constants';
 
 const { cnciBlue, white } = colors;
 const { about, locations, contact, home } = constants;
 
 // const navHeaders = [about, locations, contact];
 
-export const Header = () => {
+export const Header = (): React.JSX.Element => {
   const { navigate, dispatch } = useNavigation();
 
-  const HeaderLeftComponent = () => (
+  const HeaderLeftComponent = (): React.JSX.Element => (
     <TouchableOpacity
       style={styles.sideContainer}
       onPress={() => {

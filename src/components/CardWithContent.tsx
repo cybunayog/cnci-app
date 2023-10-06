@@ -1,12 +1,12 @@
-import { Card, CardProps, Text, Button } from '@rneui/themed';
+import { Card, type CardProps, Text, Button } from '@rneui/themed';
 import React from 'react';
 import {
   View,
   StyleSheet,
-  ImageSourcePropType,
-  TextStyle,
-  ViewStyle,
-  StyleProp,
+  type ImageSourcePropType,
+  type TextStyle,
+  type ViewStyle,
+  type StyleProp,
 } from 'react-native';
 
 import { colors, platform } from '../constants';
@@ -39,8 +39,8 @@ export const CardWithContent = ({
   buttonColor = colors.cnciRed,
   children,
   onPress = () => null,
-}: CardWithContentProps) => {
-  const InnerComponent = () => (
+}: CardWithContentProps): React.JSX.Element => {
+  const InnerComponent = (): React.JSX.Element => (
     <View style={[styles.cardInnerContainer, cardInnerContainerStyle]}>
       <Text h2 h2Style={[styles.cardTitle, titleStyle]}>
         {title}

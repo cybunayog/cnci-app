@@ -5,11 +5,14 @@ import { homeGalleryFour, homeGalleryThree, homeGalleryTwo, laIcon } from '../..
 const { width: screenWidth, height: screenHeight } = Dimensions.get('screen');
 const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
 
-export const platform: Record<string, any> = {
+export const platform: Record<string, boolean> = {
   isWeb: Platform.OS === 'web',
   isMobile: Platform.OS === 'android' || Platform.OS === 'ios',
   isMobileWidth: screenWidth <= 767,
   isMobileHeight: screenHeight <= 895,
+};
+
+export const platformMeasurement: Record<string, number> = {
   windowWidth,
   windowHeight,
   screenWidth,

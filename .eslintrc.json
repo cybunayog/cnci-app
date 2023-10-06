@@ -10,5 +10,8 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {}
+  "rules": {
+    "@typescript-eslint/strict-boolean-expressions": "warn",
+    "@typescript-eslint/no-misused-promises": "warn"
+  }
 }

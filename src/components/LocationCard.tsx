@@ -1,24 +1,31 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { Image as IconImage, Text } from '@rneui/base';
 import * as Linking from 'expo-linking';
 import React from 'react';
-import { View, StyleSheet, ImageSourcePropType } from 'react-native';
+import { View, StyleSheet, type ImageSourcePropType } from 'react-native';
 
-import { platform } from '../constants';
+import { platform, platformMeasurement } from '../constants';
 
-type LocationCardProps = {
+interface LocationCardProps {
   source: ImageSourcePropType;
   title: string;
   address: string;
   addressLink: string;
   time: string;
-};
+}
 
-export const LocationCard = ({ source, title, address, time, addressLink }: LocationCardProps) => {
+export const LocationCard = ({
+  source,
+  title,
+  address,
+  time,
+  addressLink,
+}: LocationCardProps): React.JSX.Element => {
   return (
     <View style={styles.container}>
       <IconImage source={source} style={styles.icon} />
       <Text h4>{title}</Text>
-      <Text style={styles.description} onPress={() => Linking.openURL(addressLink)}>
+      <Text style={styles.description} onPress={async () => await Linking.openURL(addressLink)}>
         {address}
       </Text>
       <Text style={styles.description}>{time}</Text>
@@ -34,8 +41,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   icon: {
-    height: platform.windowHeight / 6,
-    width: platform.windowHeight / 6,
+    height: platformMeasurement.windowHeight / 6,
+    width: platformMeasurement.windowHeight / 6,
   },
   description: {
     fontSize: platform.isMobileWidth ? 15 : 20,

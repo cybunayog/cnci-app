@@ -4,7 +4,7 @@ import { View, Alert, TextInput, StyleSheet } from 'react-native';
 
 import { colors, platform, strings, constants } from '../constants';
 
-export const ContactForm = () => {
+export const ContactForm = (): React.JSX.Element => {
   const [email, setEmail] = useState<string>('');
   const [content, setContent] = useState<string>('');
 
@@ -29,7 +29,9 @@ export const ContactForm = () => {
         style={styles.input}
         placeholder=""
         value={email}
-        onChangeText={(text) => setEmail(text)}
+        onChangeText={(text) => {
+          setEmail(text);
+        }}
         keyboardType="email-address"
       />
 
@@ -38,7 +40,9 @@ export const ContactForm = () => {
         style={[styles.input, styles.textarea]}
         placeholder=""
         value={content}
-        onChangeText={(text) => setContent(text)}
+        onChangeText={(text) => {
+          setContent(text);
+        }}
         multiline
       />
 

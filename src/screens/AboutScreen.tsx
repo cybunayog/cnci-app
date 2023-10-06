@@ -1,19 +1,20 @@
 import { Image as CoverImage, Text } from '@rneui/themed';
 import React from 'react';
-import { View, ViewStyle, StyleSheet, ScrollView, StyleProp } from 'react-native';
+import { View, type ViewStyle, StyleSheet, ScrollView, type StyleProp } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { homeGalleryOne } from '../../assets/images';
 import { Header, Footer, CardWithContent } from '../components';
-import { platform, strings, colors, aboutCards } from '../constants';
+import { platform, platformMeasurement, strings, colors, aboutCards } from '../constants';
 
-export const AboutScreen = () => {
-  const InnerComponent = ({ style }: Partial<any | undefined>) => (
+export const AboutScreen = (): React.JSX.Element => {
+  const InnerComponent = ({ style }: Partial<any | undefined>): React.JSX.Element => (
     <View style={style}>
       {aboutCards.map((content, key) => {
         const { cardContainerStyle, title, subtext } = content;
         return (
           <CardWithContent
+            key={key}
             cardContainerStyle={cardContainerStyle as StyleProp<ViewStyle>}
             cardInnerContainerStyle={styles.innerCard}
             titleStyle={styles.title}
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
   },
   coverImage: {
     width: '100%',
-    height: platform.windowWidth / 2,
+    height: platformMeasurement.windowWidth / 2,
   },
   title: {
     color: colors.black,

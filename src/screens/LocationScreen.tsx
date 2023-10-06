@@ -5,9 +5,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { churchBuilding } from '../../assets/images';
 import { Header, Footer, CardWithContent, LocationCard } from '../components';
-import { platform, strings, colors, locations } from '../constants';
+import { platform, platformMeasurement, strings, colors, locations } from '../constants';
 
-export const LocationScreen = () => {
+export const LocationScreen = (): React.JSX.Element => {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <Header />
@@ -47,7 +47,7 @@ export const LocationScreen = () => {
         </View>
         {!platform.isMobileHeight && <Footer />}
       </ScrollView>
-      {/* Move <Footer /> inside of <ScrollView /> if content gets bigger*/}
+      {/* Move <Footer /> inside of <ScrollView /> if content gets bigger */}
       {platform.isMobileHeight && <Footer />}
     </SafeAreaView>
   );
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
   coverImage: {
     width: '100%',
-    height: platform.windowWidth / 2,
+    height: platformMeasurement.windowWidth / 2,
   },
   title: {
     color: colors.black,
