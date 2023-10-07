@@ -16,7 +16,14 @@ export const ContactScreen = (): React.JSX.Element => {
           marginTop: -1,
         }}>
         <View style={styles.container}>
-          <CoverImage style={styles.coverImage} source={homeGalleryFive} />
+          <CoverImage
+            style={{
+              width: '100%',
+              resizeMode: 'contain',
+              height: platformMeasurement.windowWidth / 2,
+            }}
+            source={homeGalleryFive}
+          />
           <Text
             h2
             h2Style={{
@@ -52,10 +59,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingBottom: 20,
-  },
-  coverImage: {
-    width: '100%',
-    height: platformMeasurement.windowWidth / 2,
   },
   title: {
     color: colors.black,
