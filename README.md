@@ -5,6 +5,7 @@ An Expo App that uses react-native-web that acts as a website for the church org
 ## Installation
 
 Clone the repository
+
 ```bash
 git clone https://github.com/cybunayog/cnci-app.git
 ```
@@ -22,7 +23,8 @@ npm install
 - [TypeScript](https://www.typescriptlang.org/)
 - [React Native Elements](https://reactnativeelements.com/)
 - [Netlify](https://www.netlify.com/)
-
+- [Husky](https://typicode.github.io/husky/)
+- [lint-staged](https://github.com/okonet/lint-staged)
 
 ## License
 
