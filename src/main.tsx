@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler';
+import '@expo/match-media';
 
 import { registerRootComponent } from 'expo';
 
