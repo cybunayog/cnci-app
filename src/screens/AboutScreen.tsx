@@ -5,9 +5,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { homeGalleryOne } from '../../assets/images';
 import { Header, Footer, CardWithContent } from '../components';
-import { platform, platformMeasurement, strings, colors, aboutCards } from '../constants';
+import { platformMeasurement, strings, colors, aboutCards } from '../constants';
+import { useMobile } from '../lib/hooks';
 
 export const AboutScreen = (): React.JSX.Element => {
+  const isMobileWidth = useMobile();
+
   const InnerComponent = ({ style }: Partial<any | undefined>): React.JSX.Element => (
     <View style={style}>
       {aboutCards.map((content, key) => {
@@ -16,11 +19,19 @@ export const AboutScreen = (): React.JSX.Element => {
           <CardWithContent
             key={key}
             cardContainerStyle={cardContainerStyle as StyleProp<ViewStyle>}
-            cardInnerContainerStyle={styles.innerCard}
+            cardInnerContainerStyle={{
+              padding: isMobileWidth ? 20 : 10,
+              marginBottom: isMobileWidth ? 50 : undefined,
+            }}
             titleStyle={styles.title}
             hasButton={false}
             title={title}
-            subtextStyle={styles.subText}
+            subtextStyle={[
+              styles.subText,
+              {
+                fontSize: isMobileWidth ? 15 : 25,
+              },
+            ]}
             subtext={subtext}
           />
         );
@@ -46,7 +57,7 @@ export const AboutScreen = (): React.JSX.Element => {
             }}>
             {strings.aboutHeader}
           </Text>
-          {!platform.isMobileWidth && platform.isWeb ? (
+          {!isMobileWidth ? (
             <InnerComponent
               style={{
                 display: 'flex',
@@ -98,9 +109,5 @@ const styles = StyleSheet.create({
     color: colors.black,
     textAlign: 'left',
     padding: 5,
-    fontSize: (platform.isMobileWidth && platform.isWeb) || platform.isMobile ? 15 : 30,
-  },
-  innerCard: {
-    padding: (platform.isMobileWidth && platform.isWeb) || platform.isMobile ? 20 : 10,
   },
 });

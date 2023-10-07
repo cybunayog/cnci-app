@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { homeGalleryFive } from '../../assets/images';
 import { Header, Footer, CardWithContent, ContactForm } from '../components';
-import { platform, platformMeasurement, strings, colors } from '../constants';
+import { platformMeasurement, strings, colors } from '../constants';
 
 export const ContactScreen = (): React.JSX.Element => {
   return (
@@ -59,14 +59,5 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.black,
-  },
-  subText: {
-    color: colors.black,
-    textAlign: 'left',
-    padding: 5,
-    fontSize: (platform.isMobileWidth && platform.isWeb) || platform.isMobile ? 15 : 30,
-  },
-  innerCard: {
-    padding: (platform.isMobileWidth && platform.isWeb) || platform.isMobile ? 20 : 10,
   },
 });
