@@ -10,7 +10,8 @@ import {
   type StyleProp,
 } from 'react-native';
 
-import { colors, platform, platformMeasurement } from '../constants';
+import { colors, platformMeasurement } from '../constants';
+import { useMobile } from '../lib/hooks';
 
 type CardWithContentProps = {
   hasButton: boolean;
@@ -41,9 +42,19 @@ export const CardWithContent = ({
   children,
   onPress = () => null,
 }: CardWithContentProps): React.JSX.Element => {
+  const isMobileWidth = useMobile();
+
   const InnerComponent = (): React.JSX.Element => (
     <View style={[styles.cardInnerContainer, cardInnerContainerStyle]}>
-      <Text h2 h2Style={[styles.cardTitle, titleStyle]}>
+      <Text
+        h2
+        h2Style={[
+          styles.cardTitle,
+          titleStyle,
+          {
+            fontSize: isMobileWidth ? 20 : 40,
+          },
+        ]}>
         {title}
       </Text>
       <Text style={[styles.cardSubText, subtextStyle]}>{subtext}</Text>
@@ -61,9 +72,25 @@ export const CardWithContent = ({
   );
 
   return (
-    <Card containerStyle={[styles.cardContainer, cardContainerStyle]}>
+    <Card
+      containerStyle={[
+        styles.cardContainer,
+        cardContainerStyle,
+        {
+          width: isMobileWidth ? '85%' : '50%',
+        },
+      ]}>
       {image ? (
-        <Card.Image style={styles.cardImage} source={image}>
+        <Card.Image
+          style={[
+            styles.cardImage,
+            {
+              height: isMobileWidth
+                ? platformMeasurement.windowWidth
+                : platformMeasurement.windowWidth / 2,
+            },
+          ]}
+          source={image}>
           <InnerComponent />
         </Card.Image>
       ) : children ? (
@@ -82,28 +109,19 @@ const styles = StyleSheet.create({
     padding: 0,
     justifyContent: 'center',
     marginHorizontal: 'auto',
-    height: platform.isMobileWidth
-      ? platformMeasurement.windowWidth
-      : platformMeasurement.windowWidth / 2,
-    width: platform.isMobileWidth ? '90%' : '50%',
   },
   cardTitle: {
     color: colors.white,
     textAlign: 'center',
     fontWeight: 'bold',
     marginBottom: 4,
-    fontSize: platform.isMobileWidth ? 20 : 40,
   },
   cardImage: {
-    height: platform.isMobileWidth
-      ? platformMeasurement.windowWidth
-      : platformMeasurement.windowWidth / 2,
     padding: 0,
     borderRadius: 10,
   },
   cardInnerContainer: {
     justifyContent: 'center',
-    marginTop: platform.isMobileWidth ? 10 : 30,
     paddingHorizontal: 5,
   },
   cardSubText: {

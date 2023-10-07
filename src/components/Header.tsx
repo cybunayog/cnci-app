@@ -8,12 +8,12 @@ import { logo } from '../../assets/images';
 import { colors, constants } from '../constants';
 
 const { cnciBlue, white } = colors;
-const { about, locations, contact, home } = constants;
+const { home } = constants;
 
 // const navHeaders = [about, locations, contact];
 
 export const Header = (): React.JSX.Element => {
-  const { navigate, dispatch } = useNavigation();
+  const { navigate, dispatch } = useNavigation<any>();
 
   const HeaderLeftComponent = (): React.JSX.Element => (
     <TouchableOpacity

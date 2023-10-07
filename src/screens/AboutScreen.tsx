@@ -5,22 +5,36 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { homeGalleryOne } from '../../assets/images';
 import { Header, Footer, CardWithContent } from '../components';
-import { platform, platformMeasurement, strings, colors, aboutCards } from '../constants';
+import { platformMeasurement, strings, colors, aboutCards } from '../constants';
+import { useMobile } from '../lib/hooks';
 
 export const AboutScreen = (): React.JSX.Element => {
+  const isMobileWidth = useMobile();
+
   const InnerComponent = ({ style }: Partial<any | undefined>): React.JSX.Element => (
     <View style={style}>
       {aboutCards.map((content, key) => {
-        const { cardContainerStyle, title, subtext } = content;
+        const { title, subtext } = content;
         return (
           <CardWithContent
             key={key}
-            cardContainerStyle={cardContainerStyle as StyleProp<ViewStyle>}
-            cardInnerContainerStyle={styles.innerCard}
+            cardContainerStyle={{
+              justifyContent: 'flex-start',
+            }}
+            cardInnerContainerStyle={{
+              padding: 20,
+              marginTop: isMobileWidth ? -10 : 0,
+              height: isMobileWidth ? platformMeasurement.windowWidth / 1.5 : 'auto',
+            }}
             titleStyle={styles.title}
             hasButton={false}
             title={title}
-            subtextStyle={styles.subText}
+            subtextStyle={[
+              styles.subText,
+              {
+                fontSize: isMobileWidth ? 15 : 25,
+              },
+            ]}
             subtext={subtext}
           />
         );
@@ -36,17 +50,24 @@ export const AboutScreen = (): React.JSX.Element => {
           marginTop: -1,
         }}>
         <View style={styles.container}>
-          <CoverImage style={styles.coverImage} source={homeGalleryOne} />
+          <CoverImage
+            style={{
+              width: '100%',
+              resizeMode: 'contain',
+              height: platformMeasurement.windowWidth / 2.5,
+            }}
+            source={homeGalleryOne}
+          />
           <Text
             h2
             h2Style={{
               textAlign: 'center',
-              margin: 20,
+              margin: 15,
               fontWeight: '500',
             }}>
             {strings.aboutHeader}
           </Text>
-          {!platform.isMobileWidth && platform.isWeb ? (
+          {!isMobileWidth ? (
             <InnerComponent
               style={{
                 display: 'flex',
@@ -85,10 +106,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingBottom: 10,
   },
-  coverImage: {
-    width: '100%',
-    height: platformMeasurement.windowWidth / 2,
-  },
   title: {
     color: colors.black,
     textAlign: 'left',
@@ -98,9 +115,5 @@ const styles = StyleSheet.create({
     color: colors.black,
     textAlign: 'left',
     padding: 5,
-    fontSize: (platform.isMobileWidth && platform.isWeb) || platform.isMobile ? 15 : 30,
-  },
-  innerCard: {
-    padding: (platform.isMobileWidth && platform.isWeb) || platform.isMobile ? 20 : 10,
   },
 });

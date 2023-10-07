@@ -11,10 +11,18 @@ export const ContactForm = (): React.JSX.Element => {
   const handleSubmit = (): void => {
     // TODO: Call email API to handle email, for now throw an alert.
 
-    if (!email || !content) {
-      platform.isWeb ? alert(strings.emailErrorMessage) : Alert.alert(strings.emailErrorMessage);
+    if (email.length === 0 || content.length === 0) {
+      if (platform.isWeb) {
+        alert(strings.emailErrorMessage);
+      } else {
+        Alert.alert(strings.emailErrorMessage);
+      }
     } else {
-      platform.isWeb ? alert(strings.tempEmailMessage) : Alert.alert(strings.tempEmailMessage);
+      if (platform.isWeb) {
+        alert(strings.tempEmailMessage);
+      } else {
+        Alert.alert(strings.tempEmailMessage);
+      }
     }
 
     // Clear form after submit
