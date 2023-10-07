@@ -6,14 +6,26 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { cover } from '../../assets/images';
 import { Header, Footer, CardWithContent } from '../components';
 import { colors, platformMeasurement, homeCards } from '../constants';
+import { useMobile } from '../lib/hooks';
 
 export const HomeScreen = ({ navigation }: any): React.JSX.Element => {
+  const isMobileWidth = useMobile();
+
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <Header />
       <ScrollView style={{ marginTop: -1 }}>
         <View style={styles.container}>
-          <CoverImage style={styles.coverImage} source={cover} />
+          <CoverImage
+            style={{
+              width: '100%',
+              resizeMode: 'contain',
+              height: isMobileWidth
+                ? platformMeasurement.windowWidth / 2
+                : platformMeasurement.windowWidth / 2.5,
+            }}
+            source={cover}
+          />
           {homeCards.map((content, key) => (
             <CardWithContent
               key={key}
@@ -42,9 +54,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: '100%',
     paddingBottom: 10,
-  },
-  coverImage: {
-    width: '100%',
-    height: platformMeasurement.windowWidth / 2,
   },
 });
