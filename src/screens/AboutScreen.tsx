@@ -14,14 +14,17 @@ export const AboutScreen = (): React.JSX.Element => {
   const InnerComponent = ({ style }: Partial<any | undefined>): React.JSX.Element => (
     <View style={style}>
       {aboutCards.map((content, key) => {
-        const { cardContainerStyle, title, subtext } = content;
+        const { title, subtext } = content;
         return (
           <CardWithContent
             key={key}
-            cardContainerStyle={cardContainerStyle as StyleProp<ViewStyle>}
+            cardContainerStyle={{
+              justifyContent: 'flex-start',
+            }}
             cardInnerContainerStyle={{
-              padding: isMobileWidth ? 20 : 10,
-              marginBottom: isMobileWidth ? 50 : undefined,
+              padding: 20,
+              marginTop: isMobileWidth ? -10 : 0,
+              height: isMobileWidth ? platformMeasurement.windowWidth / 1.5 : 'auto',
             }}
             titleStyle={styles.title}
             hasButton={false}
@@ -47,12 +50,19 @@ export const AboutScreen = (): React.JSX.Element => {
           marginTop: -1,
         }}>
         <View style={styles.container}>
-          <CoverImage style={styles.coverImage} source={homeGalleryOne} />
+          <CoverImage
+            style={{
+              width: '100%',
+              resizeMode: 'contain',
+              height: platformMeasurement.windowWidth / 2.5,
+            }}
+            source={homeGalleryOne}
+          />
           <Text
             h2
             h2Style={{
               textAlign: 'center',
-              margin: 20,
+              margin: 15,
               fontWeight: '500',
             }}>
             {strings.aboutHeader}
@@ -95,10 +105,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingBottom: 10,
-  },
-  coverImage: {
-    width: '100%',
-    height: platformMeasurement.windowWidth / 2,
   },
   title: {
     color: colors.black,

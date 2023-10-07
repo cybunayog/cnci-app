@@ -31,6 +31,7 @@ export const HomeScreen = ({ navigation }: any): React.JSX.Element => {
               key={key}
               hasButton
               onPress={() => navigation.navigate(content.page)}
+              cardInnerContainerStyle={{ marginTop: isMobileWidth ? 10 : 30 }}
               image={content.image}
               title={content.title}
               subtext={content.subtext}

@@ -45,12 +45,7 @@ export const CardWithContent = ({
   const isMobileWidth = useMobile();
 
   const InnerComponent = (): React.JSX.Element => (
-    <View
-      style={[
-        styles.cardInnerContainer,
-        cardInnerContainerStyle,
-        { marginTop: isMobileWidth ? 10 : 30 },
-      ]}>
+    <View style={[styles.cardInnerContainer, cardInnerContainerStyle]}>
       <Text
         h2
         h2Style={[
@@ -82,9 +77,6 @@ export const CardWithContent = ({
         styles.cardContainer,
         cardContainerStyle,
         {
-          height: isMobileWidth
-            ? platformMeasurement.windowWidth
-            : platformMeasurement.windowWidth / 2,
           width: isMobileWidth ? '85%' : '50%',
         },
       ]}>

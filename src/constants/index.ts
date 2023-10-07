@@ -103,18 +103,10 @@ export const homeCards = [
 
 export const aboutCards = [
   {
-    cardContainerStyle: {
-      justifyContent: 'flex-start',
-      flex: (platform.isMobileWidth && platform.isWeb) || platform.isMobile ? 2 : 1,
-    },
     title: strings.missionStatementTitle,
     subtext: strings.missionStatementSubText,
   },
   {
-    cardContainerStyle: {
-      justifyContent: 'flex-start',
-      flex: (platform.isMobileWidth && platform.isWeb) || platform.isMobile ? 1.25 : 1,
-    },
     title: strings.cardHomeAboutTitle,
     subtext: strings.cardHomeAboutSubText,
   },
