@@ -8,7 +8,7 @@ const { home, about, contact, locations } = constants;
 
 const HomeDrawer = createDrawerNavigator();
 
-export const Drawer = (): React.JSX.Element => {
+export const Drawer = (): React.FC => {
   const { Navigator, Screen } = HomeDrawer;
 
   return (

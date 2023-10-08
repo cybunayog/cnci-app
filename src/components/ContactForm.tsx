@@ -1,67 +1,83 @@
 import { Text, Button } from '@rneui/themed';
-import React, { useState } from 'react';
+import { Formik } from 'formik';
+import React from 'react';
 import { View, Alert, TextInput, StyleSheet } from 'react-native';
+import { object, string } from 'yup';
 
 import { colors, platform, strings, constants } from '../constants';
+import { sendEmail } from '../lib/api';
+import { type SendGridOptions } from '../lib/types';
 
 export const ContactForm = (): React.JSX.Element => {
-  const [email, setEmail] = useState<string>('');
-  const [content, setContent] = useState<string>('');
-
-  const handleSubmit = (): void => {
-    // TODO: Call email API to handle email, for now throw an alert.
-
-    if (email.length === 0 || content.length === 0) {
-      if (platform.isWeb) {
-        alert(strings.emailErrorMessage);
-      } else {
-        Alert.alert(strings.emailErrorMessage);
-      }
-    } else {
-      if (platform.isWeb) {
-        alert(strings.tempEmailMessage);
-      } else {
-        Alert.alert(strings.tempEmailMessage);
-      }
-    }
-
-    // Clear form after submit
-    setEmail('');
-    setContent('');
-  };
+  const ContactFormSchema = object().shape({
+    email: string().email('Please enter valid email').required('Email Address is Required'),
+    content: string().required('Message cannot be empty.'),
+  });
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>Email</Text>
-      <TextInput
-        style={styles.input}
-        placeholder=""
-        value={email}
-        onChangeText={(text) => {
-          setEmail(text);
-        }}
-        keyboardType="email-address"
-      />
+    <Formik
+      initialValues={{
+        email: '',
+        content: '',
+      }}
+      validationSchema={ContactFormSchema}
+      onSubmit={async (values, actions) => {
+        if (values.email.length > 0 && values.content.length > 0) {
+          try {
+            const data: SendGridOptions = {
+              to: 'cybunayog+test@gmail.com',
+              from: values.email,
+              subject: 'CNCI USA | Email Inquiry',
+              text: values.content,
+            };
 
-      <Text style={styles.label}>Message</Text>
-      <TextInput
-        style={[styles.input, styles.textarea]}
-        placeholder=""
-        value={content}
-        onChangeText={(text) => {
-          setContent(text);
-        }}
-        multiline
-      />
+            await sendEmail(data);
 
-      <Button
-        color={colors.cnciBlue}
-        buttonStyle={styles.button}
-        onPress={handleSubmit}
-        titleStyle={styles.buttonText}>
-        {constants.send}
-      </Button>
-    </View>
+            if (platform.isWeb) {
+              alert(strings.tempEmailMessage);
+            } else {
+              Alert.alert(strings.tempEmailMessage);
+            }
+            actions.setSubmitting(false);
+          } catch (error) {
+            console.log(error);
+          }
+        } else {
+          if (platform.isWeb) {
+            alert(strings.emailErrorMessage);
+          } else {
+            Alert.alert(strings.emailErrorMessage);
+          }
+        }
+      }}>
+      {({ handleChange, handleSubmit, handleBlur, values }) => (
+        <View style={styles.container}>
+          <Text style={styles.label}>Email</Text>
+          <TextInput
+            style={styles.input}
+            value={values.email}
+            onChangeText={handleChange('email')}
+            onBlur={handleBlur('email')}
+            keyboardType="email-address"
+          />
+          <Text style={styles.label}>Message</Text>
+          <TextInput
+            style={[styles.input, styles.textarea]}
+            value={values.content}
+            onChangeText={handleChange('content')}
+            onBlur={handleBlur('content')}
+            multiline
+          />
+          <Button
+            color={colors.cnciBlue}
+            buttonStyle={styles.button}
+            onPress={() => handleSubmit}
+            titleStyle={styles.buttonText}>
+            {constants.send}
+          </Button>
+        </View>
+      )}
+    </Formik>
   );
 };
 

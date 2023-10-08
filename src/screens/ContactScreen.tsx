@@ -7,7 +7,7 @@ import { homeGalleryFive } from '../../assets/images';
 import { Header, Footer, CardWithContent, ContactForm } from '../components';
 import { platformMeasurement, strings, colors } from '../constants';
 
-export const ContactScreen = (): React.JSX.Element => {
+export const ContactScreen = (): React.FC => {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <Header />

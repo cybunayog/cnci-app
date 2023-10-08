@@ -8,7 +8,7 @@ import { Header, Footer, CardWithContent } from '../components';
 import { colors, platformMeasurement, homeCards } from '../constants';
 import { useMobile } from '../lib/hooks';
 
-export const HomeScreen = ({ navigation }: any): React.JSX.Element => {
+export const HomeScreen = ({ navigation }: any): React.FC => {
   const isMobileWidth = useMobile();
 
   return (

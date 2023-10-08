@@ -12,10 +12,10 @@ const { home } = constants;
 
 // const navHeaders = [about, locations, contact];
 
-export const Header = (): React.JSX.Element => {
+export const Header = (): React.FC => {
   const { navigate, dispatch } = useNavigation<any>();
 
-  const HeaderLeftComponent = (): React.JSX.Element => (
+  const HeaderLeftComponent = (): React.FC => (
     <TouchableOpacity
       style={styles.sideContainer}
       onPress={() => {

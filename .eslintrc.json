@@ -12,6 +12,13 @@
   "plugins": ["react"],
   "rules": {
     "@typescript-eslint/strict-boolean-expressions": "warn",
-    "@typescript-eslint/no-misused-promises": "warn"
+    "@typescript-eslint/no-misused-promises": "warn",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
 }

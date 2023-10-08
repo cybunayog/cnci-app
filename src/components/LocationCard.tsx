@@ -20,7 +20,7 @@ export const LocationCard = ({
   address,
   time,
   addressLink,
-}: LocationCardProps): React.JSX.Element => {
+}: LocationCardProps): React.FC => {
   const isMobileWidth = useMobile();
 
   return (

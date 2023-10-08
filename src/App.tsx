@@ -4,7 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Navigator } from './routes/Navigator';
 
-const MetaHeader = (): React.JSX.Element => (
+const MetaHeader = (): React.FC => (
   <Helmet>
     <meta
       name="cnci-mobile-web-app"
@@ -14,7 +14,7 @@ const MetaHeader = (): React.JSX.Element => (
   </Helmet>
 );
 
-export const App = (): React.JSX.Element => (
+export const App = (): React.FC => (
   <SafeAreaProvider>
     <MetaHeader />
     <Navigator />

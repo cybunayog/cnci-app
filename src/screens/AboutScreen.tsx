@@ -1,6 +1,6 @@
 import { Image as CoverImage, Text } from '@rneui/themed';
 import React from 'react';
-import { View, type ViewStyle, StyleSheet, ScrollView, type StyleProp } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { homeGalleryOne } from '../../assets/images';
@@ -8,7 +8,7 @@ import { Header, Footer, CardWithContent } from '../components';
 import { platformMeasurement, strings, colors, aboutCards } from '../constants';
 import { useMobile } from '../lib/hooks';
 
-export const AboutScreen = (): React.JSX.Element => {
+export const AboutScreen = (): React.FC => {
   const isMobileWidth = useMobile();
 
   const InnerComponent = ({ style }: Partial<any | undefined>): React.JSX.Element => (

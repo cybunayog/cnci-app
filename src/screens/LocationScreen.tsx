@@ -7,7 +7,7 @@ import { churchBuilding } from '../../assets/images';
 import { Header, Footer, CardWithContent, LocationCard } from '../components';
 import { platform, platformMeasurement, strings, colors, locations } from '../constants';
 
-export const LocationScreen = (): React.JSX.Element => {
+export const LocationScreen = (): React.FC => {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <Header />
