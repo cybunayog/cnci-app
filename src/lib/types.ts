@@ -1,6 +1,10 @@
 export type SendGridOptions = {
-  to: string;
   from: string;
   subject: string;
-  text: string;
+  html: string;
+};
+
+export type FormInitialValues = {
+  email: string;
+  content: string;
 };

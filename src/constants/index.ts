@@ -24,6 +24,7 @@ export const colors: Record<string, string> = {
   white: '#fff',
   black: '#000',
   borderGray: '#ccc',
+  red: '#ff0000',
 };
 
 export const strings: Record<string, string> = {
